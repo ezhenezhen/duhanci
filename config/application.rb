@@ -60,6 +60,20 @@ module Duhanci
     config.assets.enabled = true
     config.assets.compile = true
 
+    config.assets.precompile += ['about.css']
+    config.assets.precompile += ['account.css']
+    config.assets.precompile += ['application.css']
+    config.assets.precompile += ['basket.css']
+    config.assets.precompile += ['international.css']
+    config.assets.precompile += ['main.css']
+    config.assets.precompile += ['offers.css']
+    config.assets.precompile += ['product-detail.css']
+    config.assets.precompile += ['search.css']
+    config.assets.precompile += ['sephoratv.css']
+    config.assets.precompile += ['support.css']
+
+
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
