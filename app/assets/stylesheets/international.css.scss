@@ -1,0 +1,38 @@
+
+/* international sites page */
+
+.international.content { background: none; margin: 0; }
+.international .maincontent { width: 980px }
+
+/*header*/
+
+.international h4 { color: #cc0000; font-weight: normal; margin-top: 10px; }
+.international h1 { background: url("/images/hd-international-page.png"); background-repeat: no-repeat; height: 80px; margin-top: 40px; display: block; border-bottom: #000 solid 2px; }
+
+/*page intro*/
+
+.international .page-intro p { font-size: 11px; color: #333; padding: 20px 0 40px 0; }
+
+.international .international-icons { margin: 10px 0 20px 100px; }
+.international .international-icons ul li { display: block; height: 54px; width: 210px; float: left; font-weight: bold; }
+.international .international-icons ul li a { font-size: 13px; padding-left: 35px; background: url("/images/icons-international.png"); background-repeat: no-repeat; overflow: hidden; }
+
+.international .international-icons .us a {background-position: 0 -2px; }
+.international .international-icons .canada a {background-position: -210px -2px; }
+.international .international-icons .china a {background-position: -420px -2px; padding-right: 55px; }
+.international .international-icons .czech a {background-position: -630px -2px; }
+
+.international .international-icons .france a {background-position: 0 -56px; }
+.international .international-icons .greece a {background-position: -210px -56px; padding-right: 62px; }
+.international .international-icons .italy a {background-position: -420px -56px; }
+.international .international-icons .nederlands a {background-position: -630px -56px; }
+
+.international .international-icons .poland a {background-position: 0 -111px; }
+.international .international-icons .portugal a {background-position: -210px -111px; }
+.international .international-icons .romania a {background-position: -420px -111px; }
+.international .international-icons .spain a {background-position: -630px -111px; }
+
+.international .international-icons .turkiye a {background-position: 0 -165px; }
+.international .international-icons .mexico a {background-position: -210px -165px; }
+.international .international-icons .brazil a {background-position: -420px -165px; }
+
