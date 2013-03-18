@@ -1,0 +1,46 @@
+/* =============================================================================
+   Offers
+   ========================================================================== */
+    
+.page-intro { display: block; background-color: #fff; margin-left: 17px; border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; }
+.page-intro h1 { padding-bottom: 10px; }
+.page-intro p { width: 570px; }
+
+
+/* =============================================================================
+   Samples
+   ========================================================================== */  
+   
+.samples-content { padding: 0 0 27px 0; width: 760px; position: relative; }
+.samples-content h2 { font-size: 20px; color: #000; font-weight: normal; line-height: 20px; margin-bottom: 20px; }
+
+.sample-item { position: relative; width: 150px; margin: 0 20px 0; float: left; height: 252px; overflow: hidden; text-align: center; }
+.sample-item .sample-check { width: 15px; float: left; margin-top: 121px; }
+.sample-item .sample-info { width: 135px; padding-bottom: 10px; float: left; }
+.sample-item .sample-image { width: 135px; }
+.sample-item .sample-image img { display: inline; }
+.sample-item .qlook { width: 135px; right: 0; left: auto; top: 100px; }
+.sample-item .sample-description { width: 135px; padding: 8px 0 10px; }
+.sample-item .sample-description .brand { text-transform: uppercase; display: block; }
+
+/* samples footer */
+.samples-content .samples-foot { padding: 15px 0 4px 0; width: 760px; border-top: 1px solid #d8d8d8; margin-top: 10px; }
+.samples-content .samples-foot .foot-text { float: left; padding-top: 5px; width: 595px; }
+.samples-content .samples-foot .foot-text p { padding-bottom: 5px; font-size: 11px; color: #333; }
+.samples-content .samples-foot .add-samples { float: right; padding-top: 7px; }
+
+
+/* =============================================================================
+   Weekly Specials + Beauty Deals
+   ========================================================================== */  
+   
+.deals-specials h2 { background: #fff; font-size: 24px; padding-top: 26px; }
+.deals-specials .page-intro { margin-bottom: 0; }
+.specials { background: #e4e4e4; padding-bottom: 6px; }
+.featured-deal a, .specials a { display: block; }
+.featured-deal a { border: 6px solid #e4e4e4; }
+.specials a { float: left; width: 371px; height: 161px; margin-top: 6px; margin-left: 6px; }
+.footnote { padding-top: 26px; }
+.anchors { padding: 15px 0 10px; }
+.anchors li { float: left; margin-right: 22px; }
+.anchors li a { background: url(/images/icon-jump-link-arrow.png) no-repeat left center; padding-left: 10px;  }

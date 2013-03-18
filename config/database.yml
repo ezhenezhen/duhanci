@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: duhanci
+  pool: 5
+  username: duhanci
+  password: duhanci
+  host: localhost
+
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: duhanci
+  pool: 5
+  username: duhanci
+  password: duhanci
+  host: localhost
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: duhanci
+  pool: 5
+  username: duhanci
+  password: duhanci
+  host: localhost
