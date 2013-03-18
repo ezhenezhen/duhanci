@@ -5,7 +5,7 @@ gem 'pg'
 gem 'nokogiri'
 gem 'paperclip'
 gem 'magic_encoding'
-
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -27,5 +27,4 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'thin'
 end
