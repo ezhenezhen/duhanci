@@ -72,6 +72,8 @@ module Duhanci
     config.assets.precompile += ['sephoratv.css']
     config.assets.precompile += ['support.css']
     config.assets.precompile += ['jquery.fancybox.css']
+    config.assets.precompile += ['jquery.fancybox.js']
+    config.assets.precompile += ['jquery.js']
 
 
 
