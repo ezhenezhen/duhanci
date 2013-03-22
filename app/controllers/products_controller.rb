@@ -17,11 +17,11 @@ class ProductsController < ApplicationController
         cookies[:product] = [cookies[:product]] << params[:id]
       end
     end
-      
+
   end
 
   def index
-    @products = Product.all
+    @products = Product.find(:all, :conditions => {:parent_id => nil})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,13 +33,21 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @brand = @product.brands
-    @same = Product.find(:all, :conditions => {:brands => @brand}).sample(4)
+    if @product.parent_id == nil
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @product }
+      @brand = @product.brands
+      @same = Product.find(:all, :conditions => {:brands => @brand, :parent_id => nil}).sample(4)
+      @children = Product.find(:all, :conditions => {:parent_id => @product.id})
+      
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @product }
+      end
+    else
+      @product = Product.find(@product.parent_id)
+      redirect_to @product
     end
+
   end
 
   # GET /products/new

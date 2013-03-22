@@ -714,7 +714,6 @@
 								<br/>
 							</div>
 							<div class="view-larger-trigger">
-																						
 
 								<!--Fancybox script-->
 								<script type="text/javascript">
@@ -722,8 +721,6 @@
 										$(".fancybox").fancybox();
 									});
 								</script>
-								
-								
 
 								<% unless @product.assets.nil? %>
 								<% i=1 %>
@@ -732,8 +729,6 @@
 								<% i+=1 %>
 								<% end %>
 								<% end %>
-								
-								
 
 								<a class="fancybox" rel="#modal-view-larger" href=<%= @product.assets[0].asset(:original) %>> увеличить <span class="icon"></span></a>
 							</div>
@@ -791,67 +786,7 @@
 							</input>
 							<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
 							</input>
-							<div class="product-detail container">
-								<div id="primarySkuInfoArea" class="container">
-									<div class="product-description container">
-										<div class="purchase-info" id="primarySkuInfo_price">
-											<% unless !@product.available == true %>
-											<div class="container">
-												<div class="product-quantity">
-													<label for="692806">QTY</label>
-													<select id="692806" class="OneLinkNoTx quantitySelector "  >
-														<option value="1" selected="selected" >1</option>
-														<option value="2" >2</option>
-														<option value="3" >3</option>
-														<option value="4" >4</option>
-														<option value="5" >5</option>
-														<option value="6" >6</option>
-														<option value="7" >7</option>
-														<option value="8" >8</option>
-														<option value="9" >9</option>
-														<option value="10" >10</option>
-													</select>
-													<input name="/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value="1" class="quantity" type="hidden">
-													<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value=" " type="hidden">
-												</div>
-												<span class="sku-price"> <span class="list-price"><span class="price"><%= @product.price %> </span><span class="currency">грн.</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
-											</div>
-
-											<div class="free-shipping">
-												бесплатная доставка
-											</div>
-											<% end %>
-											<% if @product.available == false  %>
-											<div class="out-of-stock" style="">
-												<b>нет в наличии</b><span></span><a href="#" class="underline btn-email-when-in-stock"></a>
-											</div>
-											<% end %>
-										</div>
-										<h1><span class="OneLinkNoTx"><%= @product.name %></span></h1>
-										<div class="info-row">
-											<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= @product.id %></span> </span>
-										</div>
-										<div class="info-row variation with-new">
-											<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx"><%= @product.size %> мл., <%= @product.product_type %></span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
-										</div>
-									</div>
-								</div>
-								<div class="sku-selector swatch-sq-lg border">
-									<div class="sku-selector-content clearfix">
-										<% unless @product.assets.nil? %>
-										<% i=0 %>
-										<% while i < @product.assets.size %>
-										<a href=<%= @product.assets[i].asset(:original)%> class="product-thumb fancybox" rel="modal" %> <%= image_tag @product.assets[i].asset(:small), :size => "62x62>" %> </a>
-										<% i+=1 %>
-										<% end %>
-										<% end %>
-									</div>
-								</div>
-							</div>
-							<input name="_DARGS" value="/product/include/skuTemplate.jsp" type="hidden">
-							</input>
-						</form>
-						<div class="product-actions">
+							<div class="product-actions">
 							<div class="checkout-basket">
 								<div class="bi-exclusive" style="display:none;">
 									<span class="OneLinkNoTx">Beauty Insider</span> exclusive
@@ -945,6 +880,7 @@
 									</input>
 								</form>
 								<% end %>
+
 								<div class="currently-on-your-list" style="display: none;">
 									<a href="/profile/MyAccount/MyList/myList.jsp"><span>on your shopping list</span></a>
 								</div>
@@ -957,7 +893,110 @@
 								</div>
 							</div>
 						</div>
+							<div class="product-detail container">
+								<div id="primarySkuInfoArea" class="container">
+									<div class="product-description container">
+										<div class="purchase-info" id="primarySkuInfo_price">
+											<% unless !@product.available == true %>
+											<div class="container">
+												<div class="product-quantity">
+													<label for="692806">QTY</label>
+													<select id="692806" class="OneLinkNoTx quantitySelector "  >
+														<option value="1" selected="selected" >1</option>
+														<option value="2" >2</option>
+														<option value="3" >3</option>
+														<option value="4" >4</option>
+														<option value="5" >5</option>
+														<option value="6" >6</option>
+														<option value="7" >7</option>
+														<option value="8" >8</option>
+														<option value="9" >9</option>
+														<option value="10" >10</option>
+													</select>
+													<input name="/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value="1" class="quantity" type="hidden">
+													<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value=" " type="hidden">
+												</div>
+												<span class="sku-price"> <span class="list-price"><span class="price"><%= @product.price %> </span><span class="currency">грн.</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
+											</div>
+
+											<div class="free-shipping">
+												бесплатная доставка
+											</div>
+											<% end %>
+											<% if @product.available == false  %>
+											<div class="out-of-stock" style="">
+												<b>нет в наличии</b><span></span><a href="#" class="underline btn-email-when-in-stock"></a>
+											</div>
+											<% end %>
+										</div>
+										<h1><span class="OneLinkNoTx"><%= @product.name %></span></h1>
+										<div class="info-row">
+											<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= @product.id %></span> </span>
+										</div>
+										<div class="info-row variation with-new">
+											<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx"><%= @product.size %> мл., <%= @product.product_type %></span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
+										</div>
+									</div>
+								</div>
+								<div class="sku-selector swatch-sq-lg border">
+									<div class="sku-selector-content clearfix">
+										<% unless @product.assets.nil? %>
+										<% i=0 %>
+										<% while i < @product.assets.size %>
+										<a href=<%= @product.assets[i].asset(:original)%> class="product-thumb fancybox" rel="modal" %> <%= image_tag @product.assets[i].asset(:small), :size => "62x62>" %> </a>
+										<% i+=1 %>
+										<% end %>
+										<% end %>
+									</div>
+								</div>
+							
+							<input name="_DARGS" value="/product/include/skuTemplate.jsp" type="hidden">
+							</input>
+						</form>
+
+					
+					<% unless @children.empty? %>	
+					<div class="ancillary-products container">
+						<h3 class="helvetica-light">похожие товары</h3>
+						<% for children in @children  %>
+						<div class="ancillary-row container">
+							<div class="product-description container">
+								<div class="product-image">
+									<%= image_tag children.assets[0].asset(:small) %>
+								</div>
+								
+								<div class="purchase-info">
+									<% unless children.available == false%>
+									<div class="container">
+										<span class="sku-price"> <span class="list-price"> <span class="price"><%= children.price %></span> <span class="currency">грн.</span> </span> </span>
+									</div>
+									<div class="free-shipping">
+										бесплатная доставка
+									</div>
+									<% end %>
+									<% if children.available == false %>
+									<div class="out-of-stock">
+										<b>нет в наличии</b>
+										</div>
+									<% end %>
+								</div>
+								<h2><%= children.name %></h2>
+								<div class="info-row">
+									<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= children.id %></span> </span>
+								</div>
+								<div class="info-row variation with-new">
+									<span class=""> <span class="label" style="display:none"></span> <span class="value"> <span class="OneLinkNoTx"><%= children.size %> мл., <%= children.product_type %></span> </span> <span class="separator" style="display:none">|</span> <span class="new" style="display:none">New</span> </span>
+								</div>
+							</div>
+						</div>
+						<% end %>
+						</div>
+						<% end %>
+						
+						</div>
+						
 					</div>
+					
 					<ul class="tabs container">
 						<li>
 							<a class = "current" href="#" ><span>Описание</span></a>
@@ -1661,13 +1700,12 @@
 			<noscript>
 				<img src="http://pixel.quantserve.com/pixel/p-efJbv8XhssAmI.gif" class="hidden" height="1" width="1" alt="Quantcast"/>
 			</noscript>
-								<script type="text/javascript">
-								$(".product-thumb").hover(function(){
-									
-									 $("#hero").attr("src", this.href)
-								});
-								</script>			
-			
-			
+			<script type="text/javascript">
+				$(".product-thumb").hover(function() {
+
+					$("#hero").attr("src", this.href)
+				});
+			</script>
+
 	</body>
 </html>
