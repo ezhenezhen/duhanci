@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @brand = @product.brands
-    @same = Product.find_all_by_brands(@brand, :limit => 4)
+    @same = Product.find(:all, :conditions => {:brands => @brand}).sample(4)
 
     respond_to do |format|
       format.html # show.html.erb
