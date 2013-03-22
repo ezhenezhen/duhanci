@@ -2377,8 +2377,8 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-active strong, ul.ui-autocomplete .u
 }
 .sku-selector.swatch-sq-lg img {
     display: block;
-    height: 62px;
-    width: 62px;
+    height: auto;
+    width: auto;
 }
 .sku-selector.swatch-rect img {
     display: block;

@@ -16,7 +16,7 @@
 class Asset < ActiveRecord::Base
   belongs_to :product
   has_attached_file :asset,
-                    :styles => {:small => "90x90>", :thumb => "155x155#", :large => "800x600>"},
+                    :styles => {:small => "62x62>", :medium => "97x97>", :thumb => "250x250>"},
                     :url  => "/attachments/:product_id/:basename_:style.:extension",
                     :path => ":rails_root/public/attachments/:product_id/:basename_:style.:extension"
 

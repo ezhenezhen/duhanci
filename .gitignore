@@ -41,8 +41,6 @@ tmp/*
 /spec/views
 /specifications
 
-/public/attachments
-
 # scm revert files
 **.orig
 
