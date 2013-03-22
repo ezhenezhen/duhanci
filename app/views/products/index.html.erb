@@ -1,21 +1,1636 @@
-<h1>Listing products</h1>
+<div id="uvTab" style="background: url(&quot;http://widget.uservoice.com/images/clients/widget2/tab-horizontal-dark-no-bullhorn.png&quot;) no-repeat scroll 0px 50% rgb(0, 0, 0); border-width: 1px 1px medium; border-style: solid solid none; border-color: rgb(255, 255, 255) rgb(255, 255, 255) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-radius: 4px 4px 0px 0px; box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 0, 0, 0.5); font: bold 14px/1em Arial,sans-serif; position: fixed; right: 10px; bottom: 0px; z-index: 9999; margin-bottom: 0px; display: block;">
+	<a id="uvTabLabel" style="background-color: transparent; display:block;padding:6px 10px 2px 10px;text-decoration:none;" href="javascript:return false;"><img src="http://widget.uservoice.com/dcache/widget/feedback-tab.png?t=give%20feedback%20now&amp;c=ffffff&amp;r=0" alt="give feedback now" style="border:0; background-color: transparent; padding:0; margin:0;"></a>
+</div>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="my-sephora">
+	<form id="myAccountBoxForm" name="myAccount" action="/common/header/?_DARGS=/common/header/mySephora.jsp#" method="post">
+		<input name="_dyncharset" value="UTF-8" type="hidden">
+		<input value="-2262788601671825071" type="hidden">
+		<ul>
+			<li class="sign-in">
+				<a href="/profile/login/login.jsp" data-ajaxlink="">sign in</a>
+				<span>or</span>
+				<a class="register" href="/profile/registration/registration.jsp" data-ajaxlink="">register</a>
+			</li>
+			<li class="account">
+				<a href="/profile/MyAccount/myAccountLoading.jsp">ACCOUNT</a>
+			</li>
+			<li class="beautyinsider">
+				<a class="OneLinkNoTx" href="/profile/MyAccount/beautyInsider/beautyInsider.jsp">BEAUTY INSIDER</a>
+			</li>
+			<li class="my-basket right" id="sephoraBoxItemsArea">
+				<a href="/basket/basket.jsp"><span class="icon"></span> <span class="item-count">0</span> BASKET </a>
+			</li>
+			<li class="shopping-list right">
+				<a href="/profile/MyAccount/MyList/myList.jsp">SHOPPING LIST</a>
+			</li>
+			<li class="free-samples right">
+				<a href="/offers/samples.jsp?mediaId=10800026">3 FREE SAMPLES</a>
+			</li>
+		</ul>
+		<input name="_DARGS" value="/common/header/mySephora.jsp" type="hidden">
+	</form>
+</div>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="wrapper">
+	<div class="site-header">
+		<div class="flame flame-top"></div>
+		<div class="masthead container">
+			<form id="site-search-form" name="keywordSearch" action="/search/search.jsp?_DARGS=/common/header/search.jsp.siteFormId" method="post">
+				<input name="_dyncharset" value="UTF-8" type="hidden">
+				<input name="_dynSessConf" value="-2262788601671825071" type="hidden">
+				<input id="keywordsSearchBtn" submitform="true" name="/sephora/search/formhandler/SephoraSearchFormhandler.keywordSearch" value="keywordsSearch" type="hidden">
+				<input name="_D:/sephora/search/formhandler/SephoraSearchFormhandler.keywordSearch" value=" " type="hidden">
+				<input name="/sephora/search/formhandler/SephoraSearchFormhandler.keyword" value="" type="hidden">
+				<input name="_D:/sephora/search/formhandler/SephoraSearchFormhandler.keyword" value=" " type="hidden">
+				<div id="site-search" class="site-search container">
+					<input class="site-search-field ui-autocomplete-input" id="site-search-field" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" maxlength="70" placeholder="SEARCH" type="text">
+					<input class="icon" name="search" value="" type="submit">
+				</div>
+				<input name="_DARGS" value="/common/header/search.jsp.siteFormId" type="hidden">
+			</form>
+			<div class="logo">
+				<a href="/"><img src="/contentimages/homepage/110112/Sephora_LogoUpdate_110212.gif" alt="Sephora"> </a>
+			</div>
+			<span id="free-shipping" data-free-shipping-amt="50.0" style="display:none;"></span>
+			<div class="promo-area">
 
-<br />
+				<img src="/contentimages/homepage/3_day_shipping_05.06.12.jpg" alt="free 3 day shipping over $50">
+				<div id="modal-shipping-details" class="modal modal-small modal-shipping-details">
+					<div class="modal-body">
+						<h2>U.S. shipping details</h2>
+						<div class="html-component">
+							<p>
+								3 Day shipping on orders <b>over $50 - FREE</b>
+								<br>
+								3 Day shipping on orders <b>under $50 - $5.95</b>
+							</p>
+							<table>
+								<tbody>
+									<tr>
+										<th>Order</th>
+										<th>Ships</th>
+										<th>Arrives by</th>
+									</tr>
+									<tr>
+										<td>Mon</td>
+										<td>Tues</td>
+										<td>Fri</td>
+									</tr>
+									<tr>
+										<td>Tues</td>
+										<td>Wed</td>
+										<td>Mon</td>
+									</tr>
+									<tr>
+										<td>Wed</td>
+										<td>Thurs</td>
+										<td>Tues</td>
+									</tr>
+									<tr>
+										<td>Thurs</td>
+										<td>Fri</td>
+										<td>Wed</td>
+									</tr>
+									<tr>
+										<td>Fri</td>
+										<td>Mon</td>
+										<td>Thurs</td>
+									</tr>
+									<tr>
+										<td>Sat</td>
+										<td>Mon</td>
+										<td>Thurs</td>
+									</tr>
+									<tr>
+										<td>Sun</td>
+										<td>Mon</td>
+										<td>Thurs</td>
+									</tr>
+								</tbody>
+							</table>
+							<p>
+								Excludes <a href="/customerService/customerServiceTemplate.jsp?mediaId=12300050"><u>Canada</u></a> and HAZMAT orders.
+								<br>
+								<a href="/customerService/customerServiceTemplate.jsp?mediaId=12300026"> <u>See all restrictions and other shipping options.</u></a>
+							</p>
+							<p>
+								<b>Free returns by mail or in stores.</b>
+							</p>
+						</div>
+					</div>
+					<div class="icon close"></div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-bar clearfix">
+			<ul id="navigation" class="navigation clearfix">
+				<li class="nav1">
+					<a href="/makeup">Makeup</a>
+					<ul>
+						<li>
+							<a href="/palettes-value-sets-makeup">Palettes &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/face-makeup">Face</a>
+						</li>
+						<li>
+							<a href="/eyes-makeup">Eyes</a>
+						</li>
+						<li>
+							<a href="/lips-makeup">Lips</a>
+						</li>
+						<li>
+							<a href="/nails-makeup">Nails</a>
+						</li>
+						<li>
+							<a href="/body-makeup">Body</a>
+						</li>
+						<li>
+							<a href="/makeup-brushes-applicators-makeup">Makeup Brushes &amp; Applicators</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav2">
+					<a href="/skincare">Skincare</a>
+					<ul>
+						<li>
+							<a href="/skin-care-sets-travel-value">Travel &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/cleanser-skincare">Cleanser</a>
+						</li>
+						<li>
+							<a href="/moisturizer-skincare">Moisturizer</a>
+						</li>
+						<li>
+							<a href="/face-treatments-serums-skincare">Face Treatments &amp; Serums</a>
+						</li>
+						<li>
+							<a href="/bb-cc-cream-skincare">BB &amp; CC Creams</a>
+						</li>
+						<li>
+							<a href="/face-oils-skincare">Face Oils</a>
+						</li>
+						<li>
+							<a href="/masks-skincare">Masks</a>
+						</li>
+						<li>
+							<a href="/exfoliators-peels-skincare">Exfoliators &amp; Peels</a>
+						</li>
+						<li>
+							<a href="/toner-mists-skincare">Toner &amp; Mists</a>
+						</li>
+						<li>
+							<a href="/eye-cream-skincare">Eye Cream</a>
+						</li>
+						<li>
+							<a href="/lip-balm-treatments-skincare">Lip Balm &amp; Treatments</a>
+						</li>
+						<li>
+							<a href="/neck-decollete-skincare">Neck &amp; Decollete</a>
+						</li>
+						<li>
+							<a href="/sunscreen-skincare">Sunscreen</a>
+						</li>
+						<li>
+							<a href="/bronzer-self-tanner-skincare">Bronzer &amp; Self-Tanner</a>
+						</li>
+						<li>
+							<a href="/hair-removal-skincare">Hair Removal</a>
+						</li>
+						<li>
+							<a href="/supplements-skincare">Supplements</a>
+						</li>
+						<li>
+							<a href="/teeth-whitening-skincare">Teeth Whitening</a>
+						</li>
+						<li>
+							<a href="/mother-baby-skincare">Mother &amp; Baby</a>
+						</li>
+						<li>
+							<a href="/professional-spa-tools-skincare">Professional Spa Tools</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav3">
+					<a href="/fragrance">Fragrance</a>
+					<ul>
+						<li>
+							<a href="/gift-value-sets-fragrance">Gift &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/women-fragrance">Women</a>
+						</li>
+						<li>
+							<a href="/men-fragrance">Men</a>
+						</li>
+						<li>
+							<a href="/rollerballs-fragrance">Rollerballs</a>
+						</li>
+						<li>
+							<a href="/candles-home-scents-fragrance">Candles &amp; Home Scents</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav4">
+					<a href="/bath-body">Bath &amp; Body</a>
+					<ul>
+						<li>
+							<a href="/gift-value-sets-bath-body">Gift &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/bath-bath-body">Bath</a>
+						</li>
+						<li>
+							<a href="/body-cleanser-bath-body">Body Cleanser</a>
+						</li>
+						<li>
+							<a href="/body-moisturizer-bath-body">Body Moisturizer</a>
+						</li>
+						<li>
+							<a href="/body-scrub-exfoliants-bath-body">Body Scrub &amp; Exfoliants</a>
+						</li>
+						<li>
+							<a href="/sunscreen-bath-body">Sunscreen</a>
+						</li>
+						<li>
+							<a href="/bronzer-self-tanner-bath-body">Bronzer &amp; Self Tanner</a>
+						</li>
+						<li>
+							<a href="/cellulite-stretch-marks-bath-body">Cellulite &amp; Stretch Marks</a>
+						</li>
+						<li>
+							<a href="/hair-removal-shaving-bath-body">Hair Removal &amp; Shaving</a>
+						</li>
+						<li>
+							<a href="/hands-feet-bath-body">Hands &amp; Feet</a>
+						</li>
+						<li>
+							<a href="/deodorant-bath-body">Deodorant</a>
+						</li>
+						<li>
+							<a href="/teeth-whitening-bath-body">Teeth Whitening</a>
+						</li>
+						<li>
+							<a href="/mother-baby-bath-body">Mother &amp; Baby</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav5">
+					<a href="/hair">Hair</a>
+					<ul>
+						<li>
+							<a href="/travel-value-sets-hair">Travel &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/shampoo-hair">Shampoo</a>
+						</li>
+						<li>
+							<a href="/dry-shampoo-hair">Dry Shampoo</a>
+						</li>
+						<li>
+							<a href="/conditioner-hair">Conditioner</a>
+						</li>
+						<li>
+							<a href="/hair-scalp-treatments-hair">Hair &amp; Scalp Treatments</a>
+						</li>
+						<li>
+							<a href="/hair-oils-hair">Hair Oils</a>
+						</li>
+						<li>
+							<a href="/styling-products-hair">Styling Products</a>
+						</li>
+						<li>
+							<a href="/dryers-hair">Dryers</a>
+						</li>
+						<li>
+							<a href="/flatirons-stylers-curlers-hair">Flatirons, Stylers &amp; Curlers</a>
+						</li>
+						<li>
+							<a href="/shower-filters-flatirons-stylers-curlers-hair">Shower Filters</a>
+						</li>
+						<li>
+							<a href="/brushes-combs-hair">Brushes &amp; Combs</a>
+						</li>
+						<li>
+							<a href="/hair-accessories-hair">Hair Accessories</a>
+						</li>
+						<li>
+							<a href="/hair-color-hair">Hair Color</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav6">
+					<a href="/tools-accessories">Tools &amp; Accessories</a>
+					<ul>
+						<li>
+							<a href="/gift-value-sets-tools-accessories">Gift &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/bags-cases-tools-accessories">Bags &amp; Cases</a>
+						</li>
+						<li>
+							<a href="/makeup-brushes-applicators-tools-accessories">Makeup Brushes &amp; Applicators</a>
+						</li>
+						<li>
+							<a href="/professional-spa-tools-tools-accessories">Professional Spa Tools</a>
+						</li>
+						<li>
+							<a href="/manicure-pedicure-tools-accessories">Manicure &amp; Pedicure</a>
+						</li>
+						<li>
+							<a href="/hair-removal-tools-accessories">Hair Removal</a>
+						</li>
+						<li>
+							<a href="/brow-tools-tweezers-tools-accessories">Brow Tools &amp; Tweezers</a>
+						</li>
+						<li>
+							<a href="/eyelash-curlers-tools-accessories">Eyelash Curlers</a>
+						</li>
+						<li>
+							<a href="/sharpeners-tools-accessories">Sharpeners</a>
+						</li>
+						<li>
+							<a href="/hair-tools-accessories-tools-accessories">Hair Tools &amp; Accessories</a>
+						</li>
+						<li>
+							<a href="/teeth-whitening-tools-accessories">Teeth Whitening</a>
+						</li>
+						<li>
+							<a href="/mirrors-tools-accessories">Mirrors</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav7">
+					<a href="/men">Men</a>
+					<ul>
+						<li>
+							<a href="/gift-value-sets-men">Gift &amp; Value Sets</a>
+						</li>
+						<li>
+							<a href="/fragrance-men">Fragrance</a>
+						</li>
+						<li>
+							<a href="/shaving-men">Shaving</a>
+						</li>
+						<li>
+							<a href="/cleanser-men">Cleanser</a>
+						</li>
+						<li>
+							<a href="/moisturizers-treatments-men">Moisturizers &amp; Treatments</a>
+						</li>
+						<li>
+							<a href="/sunscreen-men">Sunscreen</a>
+						</li>
+						<li>
+							<a href="/eye-cream-men">Eye Cream</a>
+						</li>
+						<li>
+							<a href="/body-shower-men">Body &amp; Shower</a>
+						</li>
+						<li>
+							<a href="/shampoo-conditioner-styling-men">Shampoo, Conditioner, Styling</a>
+						</li>
+						<li>
+							<a href="/professional-spa-tools-men">Professional Spa Tools</a>
+						</li>
+						<li>
+							<a href="/teeth-whitening-men">Teeth Whitening</a>
+						</li>
+						<li>
+							<a href="/makeup-concealer-men">Makeup &amp; Concealer</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav8">
+					<a href="/gifts">Gifts</a>
+				</li>
+				<li class="nav9 OneLinkHide">
+					<a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=11000071"> solutions</a>
+				</li>
+				<li class="nav10 OneLinkHide">
+					<a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=11000069"> favorites</a>
+				</li>
+				<li class="nav11 OneLinkHide">
+					<a href="http://theglossy.sephora.com" target="_blank"> trends</a>
+				</li>
+				<li class="nav12 OneLinkHide">
+					<a href="http://community.sephora.com/beautyadvice">Advice</a>
+				</li>
+				<li class="nav13 OneLinkHide">
+					<a href="/sephoratv">TV</a>
+				</li>
+				<li class="brand-dropdown">
+					<div class="trigger">
+						BRAND<span class="icon"></span>
+					</div>
+					<select id="brand-list" name="brand-list">
+						<option value="">Choose a brand...</option>
+						<option value="/brand/list.jsp">See Complete List</option>
+						<option value="/sephora-collection" class="OneLinkNoTx">SEPHORA COLLECTION</option>
+						<option value="">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</option>
+						<option value="/acqua-di-parma" class="OneLinkNoTx">Acqua Di Parma</option>
+						<option value="/agave" class="OneLinkNoTx">Agave</option>
+						<option value="/algenist" class="OneLinkNoTx">Algenist</option>
+						<option value="/alterna" class="OneLinkNoTx">ALTERNA</option>
+						<option value="/amazing-cosmetics" class="OneLinkNoTx">Amazing Cosmetics</option>
+						<option value="/amika" class="OneLinkNoTx">Amika</option>
+						<option value="/amorepacific" class="OneLinkNoTx">AmorePacific</option>
+						<option value="/anastasia" class="OneLinkNoTx">Anastasia Beverly Hills</option>
+						<option value="/anna-sui" class="OneLinkNoTx">Anna Sui</option>
+						<option value="/anthony-logistics-for-men" class="OneLinkNoTx">Anthony Logistics For Men</option>
+						<option value="/apivita" class="OneLinkNoTx">Apivita</option>
+						<option value="/aquolina" class="OneLinkNoTx">Aquolina</option>
+						<option value="/ardency-inn" class="OneLinkNoTx">ARDENCY INN</option>
+						<option value="/aromachology" class="OneLinkNoTx">AROMACHOLOGY</option>
+						<option value="/the-art-of-shaving" class="OneLinkNoTx">The Art of Shaving</option>
+						<option value="/atelier-cologne" class="OneLinkNoTx">Atelier Cologne</option>
+						<option value="/balenciaga" class="OneLinkNoTx">BALENCIAGA</option>
+						<option value="/balmshell" class="OneLinkNoTx">Balmshell</option>
+						<option value="/bareminerals" class="OneLinkNoTx">bareMinerals</option>
+						<option value="/bcbgmaxazria" class="OneLinkNoTx">BCBGMAXAZRIA</option>
+						<option value="/beautyblender" class="OneLinkNoTx">beautyblender</option>
+						<option value="/becca" class="OneLinkNoTx">BECCA</option>
+						<option value="/benefit-cosmetics" class="OneLinkNoTx">Benefit Cosmetics</option>
+						<option value="/betsey-johnson" class="OneLinkNoTx">Betsey Johnson</option>
+						<option value="/billy-jealousy" class="OneLinkNoTx">Billy Jealousy</option>
+						<option value="/bite-beauty" class="OneLinkNoTx">Bite Beauty</option>
+						<option value="/blinc" class="OneLinkNoTx">Blinc</option>
+						<option value="/bliss" class="OneLinkNoTx">Bliss</option>
+						<option value="/bobbi-brown" class="OneLinkNoTx">Bobbi Brown</option>
+						<option value="/boscia" class="OneLinkNoTx">Boscia</option>
+						<option value="/boyfriend" class="OneLinkNoTx">Boyfriend</option>
+						<option value="/brazilian-peel" class="OneLinkNoTx">Brazilian Peel</option>
+						<option value="/bumble-bumble" class="OneLinkNoTx">Bumble and bumble</option>
+						<option value="/burberry" class="OneLinkNoTx">Burberry</option>
+						<option value="/butter-london" class="OneLinkNoTx">butter LONDON</option>
+						<option value="/buxom" class="OneLinkNoTx">Buxom</option>
+						<option value="/bvlgari" class="OneLinkNoTx">Bvlgari</option>
+						<option value="/by-terry" class="OneLinkNoTx">By Terry</option>
+						<option value="/calista-tools" class="OneLinkNoTx">Calista Tools</option>
+						<option value="/calvin-klein" class="OneLinkNoTx">Calvin Klein</option>
+						<option value="/carol-s-daughter" class="OneLinkNoTx">Carol's Daughter</option>
+						<option value="/carolina-herrera" class="OneLinkNoTx">Carolina Herrera</option>
+						<option value="/cartier" class="OneLinkNoTx">Cartier</option>
+						<option value="/caudalie" class="OneLinkNoTx">Caudalie</option>
+						<option value="/chanel" class="OneLinkNoTx">CHANEL</option>
+						<option value="/charlotte-ronson" class="OneLinkNoTx">Charlotte Ronson</option>
+						<option value="/chloe" class="OneLinkNoTx">Chloe</option>
+						<option value="/ciate" class="OneLinkNoTx">Ciaté</option>
+						<option value="/clarins" class="OneLinkNoTx">Clarins</option>
+						<option value="/clarisonic" class="OneLinkNoTx">Clarisonic</option>
+						<option value="/clean" class="OneLinkNoTx">CLEAN</option>
+						<option value="/clickr-skin-care" class="OneLinkNoTx">ClickR Skin Care</option>
+						<option value="/clinique" class="OneLinkNoTx">Clinique</option>
+						<option value="/coach" class="OneLinkNoTx">COACH</option>
+						<option value="/colorsmash" class="OneLinkNoTx">Colorsmash</option>
+						<option value="/couture-colour" class="OneLinkNoTx">Couture Colour</option>
+						<option value="/cover-fx" class="OneLinkNoTx">COVER FX</option>
+						<option value="/d-g" class="OneLinkNoTx">D&amp;G</option>
+						<option value="/d-j-v-beautenizer" class="OneLinkNoTx">d.j.v. beautenizer</option>
+						<option value="/ddf-doctor-s-dermatologic-formula" class="OneLinkNoTx">DDF</option>
+						<option value="/dermadoctor" class="OneLinkNoTx">Dermadoctor</option>
+						<option value="/devacurl" class="OneLinkNoTx">DevaCurl</option>
+						<option value="/diamancel" class="OneLinkNoTx">Diamancel</option>
+						<option value="/diane-von-furstenberg" class="OneLinkNoTx">Diane von Furstenberg</option>
+						<option value="/diesel" class="OneLinkNoTx">Diesel</option>
+						<option value="/dior" class="OneLinkNoTx">Dior</option>
+						<option value="/disney-jasmine-collection" class="OneLinkNoTx">Disney Collection</option>
+						<option value="/dkny" class="OneLinkNoTx">DKNY</option>
+						<option value="/dolce-gabbana" class="OneLinkNoTx">Dolce &amp; Gabbana</option>
+						<option value="/donna-karan" class="OneLinkNoTx">Donna Karan</option>
+						<option value="/dr-brandt-skincare" class="OneLinkNoTx">Dr. Brandt Skincare</option>
+						<option value="/dr-dennis-gross-skincare" class="OneLinkNoTx">Dr. Dennis Gross</option>
+						<option value="/dr-jart" class="OneLinkNoTx">Dr. Jart+</option>
+						<option value="/dr-lipp" class="OneLinkNoTx">Dr. Lipp</option>
+						<option value="/drybar" class="OneLinkNoTx">Drybar</option>
+						<option value="/duo" class="OneLinkNoTx">DUO</option>
+						<option value="/duwop" class="OneLinkNoTx">DuWop</option>
+						<option value="/edward-bess" class="OneLinkNoTx">EDWARD BESS</option>
+						<option value="/ellis-faas" class="OneLinkNoTx">ELLIS FAAS</option>
+						<option value="/ermenegildo-zegna" class="OneLinkNoTx">Ermenegildo Zegna</option>
+						<option value="/escada" class="OneLinkNoTx">Escada</option>
+						<option value="/eshu" class="OneLinkNoTx">Eshu</option>
+						<option value="/evian" class="OneLinkNoTx">Evian</option>
+						<option value="/eyeko" class="OneLinkNoTx">Eyeko</option>
+						<option value="/fairydrops" class="OneLinkNoTx">FAIRYDROPS</option>
+						<option value="/fendi" class="OneLinkNoTx">Fendi</option>
+						<option value="/first-aid-beauty" class="OneLinkNoTx">First Aid Beauty</option>
+						<option value="/fresh" class="OneLinkNoTx">Fresh</option>
+						<option value="/ghd" class="OneLinkNoTx">ghd</option>
+						<option value="/giorgio-armani" class="OneLinkNoTx">Giorgio Armani</option>
+						<option value="/givenchy" class="OneLinkNoTx">Givenchy</option>
+						<option value="/glamglow" class="OneLinkNoTx">GLAMGLOW</option>
+						<option value="/glo" class="OneLinkNoTx">GLO</option>
+						<option value="/gucci" class="OneLinkNoTx">Gucci</option>
+						<option value="/guerlain" class="OneLinkNoTx">Guerlain</option>
+						<option value="/hairmax" class="OneLinkNoTx">HairMax</option>
+						<option value="/hampton-sun" class="OneLinkNoTx">Hampton Sun</option>
+						<option value="/hanae-mori" class="OneLinkNoTx">Hanae Mori</option>
+						<option value="/harajuku-lovers" class="OneLinkNoTx">Harajuku Lovers</option>
+						<option value="/hello-kitty" class="OneLinkNoTx">Hello Kitty</option>
+						<option value="/hermes" class="OneLinkNoTx"> HERMÈS</option>
+						<option value="/hourglass" class="OneLinkNoTx">Hourglass</option>
+						<option value="/hugo-boss" class="OneLinkNoTx">Hugo Boss</option>
+						<option value="/i-love-new-york-by-bond-no-9" class="OneLinkNoTx">I LOVE NEW YORK by Bond No. 9</option>
+						<option value="/illamasqua" class="OneLinkNoTx">Illamasqua</option>
+						<option value="/illume" class="OneLinkNoTx">Illume</option>
+						<option value="/issey-miyake" class="OneLinkNoTx">Issey Miyake</option>
+						<option value="/jack-black" class="OneLinkNoTx">Jack Black</option>
+						<option value="/jean-paul-gaultier" class="OneLinkNoTx">Jean Paul Gaultier</option>
+						<option value="/jennifer-aniston" class="OneLinkNoTx">Jennifer Aniston</option>
+						<option value="/jimmy-choo" class="OneLinkNoTx">JIMMY CHOO</option>
+						<option value="/jinsoon" class="OneLinkNoTx">JINsoon</option>
+						<option value="/john-varvatos" class="OneLinkNoTx">John Varvatos</option>
+						<option value="/josie-maran" class="OneLinkNoTx">Josie Maran</option>
+						<option value="/juicy-couture" class="OneLinkNoTx">Juicy Couture</option>
+						<option value="/julep" class="OneLinkNoTx">Julep</option>
+						<option value="/jurlique" class="OneLinkNoTx">Jurlique</option>
+						<option value="/justin-bieber" class="OneLinkNoTx">JUSTIN BIEBER</option>
+						<option value="/kat-von-d" class="OneLinkNoTx">Kat Von D</option>
+						<option value="/kate-somerville" class="OneLinkNoTx">Kate Somerville</option>
+						<option value="/kenzo" class="OneLinkNoTx">Kenzo</option>
+						<option value="/keratinperfect" class="OneLinkNoTx">KeratinPerfect</option>
+						<option value="/koh-gen-do" class="OneLinkNoTx">Koh Gen Do</option>
+						<option value="/korres" class="OneLinkNoTx">Korres</option>
+						<option value="/l-artisan-parfumeur" class="OneLinkNoTx">L'Artisan Parfumeur</option>
+						<option value="/l-occitane" class="OneLinkNoTx">L'Occitane</option>
+						<option value="/lab-series-for-men" class="OneLinkNoTx">Lab Series For Men</option>
+						<option value="/lacoste" class="OneLinkNoTx">Lacoste</option>
+						<option value="/lady-gaga" class="OneLinkNoTx">LADY GAGA</option>
+						<option value="/lancome" class="OneLinkNoTx">Lancôme</option>
+						<option value="/laura-mercier" class="OneLinkNoTx">Laura Mercier</option>
+						<option value="/lavanila" class="OneLinkNoTx">LAVANILA</option>
+						<option value="/lea-journo" class="OneLinkNoTx">Lea Journo</option>
+						<option value="/living-proof" class="OneLinkNoTx">Living Proof</option>
+						<option value="/lolita-lempicka" class="OneLinkNoTx">Lolita Lempicka</option>
+						<option value="/lorac" class="OneLinkNoTx">LORAC</option>
+						<option value="/luminaze" class="OneLinkNoTx">Luminaze</option>
+						<option value="/make-up-for-ever" class="OneLinkNoTx">MAKE UP FOR EVER</option>
+						<option value="/marc-jacobs" class="OneLinkNoTx">Marc Jacobs</option>
+						<option value="/marchesa" class="OneLinkNoTx">MARCHESA</option>
+						<option value="/marula" class="OneLinkNoTx">Marula</option>
+						<option value="/masqueology" class="OneLinkNoTx">Masque*ology</option>
+						<option value="/matte-for-men" class="OneLinkNoTx">Matte For Men</option>
+						<option value="/michael-kors" class="OneLinkNoTx">Michael Kors</option>
+						<option value="/miracle-skin-transformer" class="OneLinkNoTx">Miracle Skin Transformer</option>
+						<option value="/modelco" class="OneLinkNoTx">ModelCo</option>
+						<option value="/montblanc" class="OneLinkNoTx">Montblanc</option>
+						<option value="/murad" class="OneLinkNoTx">Murad</option>
+						<option value="/mustela" class="OneLinkNoTx">Mustela</option>
+						<option value="/nails-inc" class="OneLinkNoTx">nails inc.</option>
+						<option value="/narciso-rodriguez" class="OneLinkNoTx">Narciso Rodriguez</option>
+						<option value="/nars" class="OneLinkNoTx">NARS</option>
+						<option value="/the-new-black" class="OneLinkNoTx">The New Black</option>
+						<option value="/nu-brilliance" class="OneLinkNoTx">Nu Brilliance</option>
+						<option value="/nude-skincare" class="OneLinkNoTx">NUDE Skincare</option>
+						<option value="/obsessive-compulsive-cosmetics" class="OneLinkNoTx">Obsessive Compulsive Cosmetics</option>
+						<option value="/ojon" class="OneLinkNoTx">Ojon</option>
+						<option value="/ole-henriksen" class="OneLinkNoTx">Ole Henriksen</option>
+						<option value="/omorovicza" class="OneLinkNoTx">Omorovicza</option>
+						<option value="/origins" class="OneLinkNoTx">Origins</option>
+						<option value="/oscar-blandi" class="OneLinkNoTx">Oscar Blandi</option>
+						<option value="/ouidad" class="OneLinkNoTx">Ouidad</option>
+						<option value="/sephora-by-opi" class="OneLinkNoTx">OPI for SEPHORA</option>
+						<option value="/pacifica" class="OneLinkNoTx">Pacifica</option>
+						<option value="/paco-rabanne" class="OneLinkNoTx">Paco Rabanne</option>
+						<option value="/paperself" class="OneLinkNoTx">PAPERSELF</option>
+						<option value="/perfect-formula" class="OneLinkNoTx">Perfect Formula</option>
+						<option value="/perfekt" class="OneLinkNoTx">Perfekt</option>
+						<option value="/perricone-md" class="OneLinkNoTx">Perricone MD</option>
+						<option value="/peter-thomas-roth" class="OneLinkNoTx">Peter Thomas Roth</option>
+						<option value="/philosophy" class="OneLinkNoTx">Philosophy</option>
+						<option value="/phyto" class="OneLinkNoTx">Phyto</option>
+						<option value="/prada" class="OneLinkNoTx">Prada</option>
+						<option value="/ralph-lauren" class="OneLinkNoTx">Ralph Lauren</option>
+						<option value="/ren" class="OneLinkNoTx">REN</option>
+						<option value="/rita-hazan" class="OneLinkNoTx">Rita Hazan</option>
+						<option value="/roberto-cavalli" class="OneLinkNoTx">Roberto Cavalli</option>
+						<option value="/rosebud-perfume-co" class="OneLinkNoTx">Rosebud Perfume Co.</option>
+						<option value="/sachajuan" class="OneLinkNoTx">Sachajuan</option>
+						<option value="/sephora-collection" class="OneLinkNoTx">SEPHORA COLLECTION</option>
+						<option value="/sephora-favorites" class="OneLinkNoTx">Sephora Favorites</option>
+						<option value="/sephora-x" class="OneLinkNoTx">SEPHORA X</option>
+						<option value="/sephora-pantone-universe" class="OneLinkNoTx">SEPHORA+PANTONE UNIVERSE&trade;</option>
+						<option value="/serge-normant" class="OneLinkNoTx">Serge Normant</option>
+						<option value="/sevin-nyne" class="OneLinkNoTx">Sevin Nyne</option>
+						<option value="/shaveworks" class="OneLinkNoTx">Shaveworks</option>
+						<option value="/shiseido" class="OneLinkNoTx">Shiseido</option>
+						<option value="/silk-n" class="OneLinkNoTx">Silk'n</option>
+						<option value="/sk-ii" class="OneLinkNoTx">SK-II</option>
+						<option value="/smashbox" class="OneLinkNoTx">Smashbox</option>
+						<option value="/soap-glory" class="OneLinkNoTx">Soap &amp; Glory</option>
+						<option value="/sparitual" class="OneLinkNoTx">SpaRitual</option>
+						<option value="/sponge" class="OneLinkNoTx">Sponge</option>
+						<option value="/st-tropez-tanning-essentials" class="OneLinkNoTx">St. Tropez</option>
+						<option value="/stella-mccartney" class="OneLinkNoTx">Stella McCartney</option>
+						<option value="/stila" class="OneLinkNoTx">Stila</option>
+						<option value="/strivectin" class="OneLinkNoTx">StriVectin</option>
+						<option value="/sultra" class="OneLinkNoTx">Sultra</option>
+						<option value="/sunday-riley" class="OneLinkNoTx">Sunday Riley</option>
+						<option value="/supergoop" class="OneLinkNoTx">Supergoop!</option>
+						<option value="/t3" class="OneLinkNoTx">T3</option>
+						<option value="/tanda" class="OneLinkNoTx">Tanda</option>
+						<option value="/tantowel" class="OneLinkNoTx">TanTowel</option>
+						<option value="/tarte" class="OneLinkNoTx">Tarte</option>
+						<option value="/tatcha" class="OneLinkNoTx">Tatcha</option>
+						<option value="/taylor-swift" class="OneLinkNoTx">Taylor Swift</option>
+						<option value="/tend-skin" class="OneLinkNoTx">Tend Skin</option>
+						<option value="/thebalm" class="OneLinkNoTx">TheBalm</option>
+						<option value="/thierry-mugler" class="OneLinkNoTx">Thierry Mugler</option>
+						<option value="/tocca-beauty" class="OneLinkNoTx">Tocca</option>
+						<option value="/tokidoki" class="OneLinkNoTx">tokidoki</option>
+						<option value="/tokyomilk" class="OneLinkNoTx">TokyoMilk Dark</option>
+						<option value="/tom-ford" class="OneLinkNoTx">TOM FORD</option>
+						<option value="/too-faced" class="OneLinkNoTx">Too Faced</option>
+						<option value="/tria" class="OneLinkNoTx">Tria</option>
+						<option value="/tricia-sawyer" class="OneLinkNoTx">Tricia Sawyer</option>
+						<option value="/tweezerman" class="OneLinkNoTx">Tweezerman</option>
+						<option value="/ultraflesh" class="OneLinkNoTx">Ultraflesh</option>
+						<option value="/urban-decay" class="OneLinkNoTx">Urban Decay</option>
+						<option value="/vera-wang" class="OneLinkNoTx">Vera Wang</option>
+						<option value="/versace" class="OneLinkNoTx">Versace</option>
+						<option value="/viktor-rolf" class="OneLinkNoTx">Viktor &amp; Rolf</option>
+						<option value="/violent-lips" class="OneLinkNoTx">Violent Lips</option>
+						<option value="/wei" class="OneLinkNoTx">Wei</option>
+						<option value="/wen" class="OneLinkNoTx">WEN&reg; by Chaz Dean</option>
+						<option value="/when" class="OneLinkNoTx">When</option>
+						<option value="/yu-be" class="OneLinkNoTx">Yu-Be</option>
+						<option value="/yves-saint-laurent" class="OneLinkNoTx">Yves Saint Laurent</option>
+						<option value="/21-drops" class="OneLinkNoTx">21 Drops</option>
+					</select>
 
-<%= link_to 'New Product', new_product_path %>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="breadcrumb container">
+		<ul>
+
+			<li>
+				<a data-categoryid="cat160006" href="#">Fragrance</a>
+			</li>
+
+			<li>
+				Women
+			</li>
+
+		</ul>
+	</div>
+	<div class="content container">
+
+		<div class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidenav search-navigation">
+					<h2 class="OneLinkNoTx">Fragrance</h2>
+
+					<ul class="refinement-cats">
+
+						<li>
+
+							<a href="/gift-value-sets-fragrance" data-categoryid="cat60146" data-name="Gift &amp; Value Sets">Gift &amp; Value Sets </a>
+
+						</li>
+
+						<li class="selected-cat">
+
+							<div>
+								Women (417)
+							</div>
+
+						</li>
+
+						<li>
+
+							<a href="/men-fragrance" data-categoryid="cat60150" data-name="Men">Men </a>
+
+						</li>
+
+						<li>
+
+							<a href="/rollerballs-fragrance" data-categoryid="cat1110034" data-name="Rollerballs">Rollerballs </a>
+
+						</li>
+
+						<li>
+
+							<a href="/candles-home-scents-fragrance" data-categoryid="cat60154" data-name="Candles &amp; Home Scents">Candles &amp; Home Scents </a>
+
+						</li>
+
+						<li class="more-cats">
+							<a href="#">More <span>+</span></a>
+						</li>
+
+					</ul>
+				</div>
+				<div style="display: block;" class="clear-all-filters top">
+					<h3 class="avalon-xl">Filter by:</h3>
+					<input value="clear all filters" class="btn" type="submit">
+				</div>
+				<div id="refinements" class="refinements-list">
+					<div class="refinements checkboxes brand-refinement">
+						<a href="#" class="clear-link hide" data-multi="false">clear filter</a>
+						<h4>Brand</h4>
+
+						<div class="checkbox-list custom-scroll">
+
+							<label class="checkbox">
+								<input id="Brand0" class="refinement" name="Brand0" value="900232" analyticstype="Brand" analyticsval="21 Drops" type="checkbox">
+								<span class="OneLinkNoTx">21 Drops</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand1" class="refinement" name="Brand1" value="900096" analyticstype="Brand" analyticsval="Acqua Di Parma" type="checkbox">
+								<span class="OneLinkNoTx">Acqua Di Parma</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand2" class="refinement" name="Brand2" value="1121939" analyticstype="Brand" analyticsval="Anna Sui" type="checkbox">
+								<span class="OneLinkNoTx">Anna Sui</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand3" class="refinement" name="Brand3" value="900045" analyticstype="Brand" analyticsval="Aquolina" type="checkbox">
+								<span class="OneLinkNoTx">Aquolina</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand4" class="refinement" name="Brand4" value="1121611" analyticstype="Brand" analyticsval="AROMACHOLOGY" type="checkbox">
+								<span class="OneLinkNoTx">AROMACHOLOGY</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand5" class="refinement" name="Brand5" value="1343862" analyticstype="Brand" analyticsval="Atelier Cologne" type="checkbox">
+								<span class="OneLinkNoTx">Atelier Cologne</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand6" class="refinement" name="Brand6" value="1040964" analyticstype="Brand" analyticsval="BALENCIAGA" type="checkbox">
+								<span class="OneLinkNoTx">BALENCIAGA</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand7" class="refinement" name="Brand7" value="900213" analyticstype="Brand" analyticsval="BCBGMAXAZRIA" type="checkbox">
+								<span class="OneLinkNoTx">BCBGMAXAZRIA</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand8" class="refinement" name="Brand8" value="900103" analyticstype="Brand" analyticsval="Betsey Johnson" type="checkbox">
+								<span class="OneLinkNoTx">Betsey Johnson</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand9" class="refinement" name="Brand9" value="900013" analyticstype="Brand" analyticsval="Bobbi Brown" type="checkbox">
+								<span class="OneLinkNoTx">Bobbi Brown</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand10" class="refinement" name="Brand10" value="900150" analyticstype="Brand" analyticsval="Boyfriend" type="checkbox">
+								<span class="OneLinkNoTx">Boyfriend</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand11" class="refinement" name="Brand11" value="900025" analyticstype="Brand" analyticsval="Burberry" type="checkbox">
+								<span class="OneLinkNoTx">Burberry</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand12" class="refinement" name="Brand12" value="900184" analyticstype="Brand" analyticsval="Bvlgari" type="checkbox">
+								<span class="OneLinkNoTx">Bvlgari</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand13" class="refinement" name="Brand13" value="900182" analyticstype="Brand" analyticsval="Calvin Klein" type="checkbox">
+								<span class="OneLinkNoTx">Calvin Klein</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand14" class="refinement" name="Brand14" value="900219" analyticstype="Brand" analyticsval="Carol's Daughter" type="checkbox">
+								<span class="OneLinkNoTx">Carol's Daughter</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand15" class="refinement" name="Brand15" value="900098" analyticstype="Brand" analyticsval="Carolina Herrera" type="checkbox">
+								<span class="OneLinkNoTx">Carolina Herrera</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand16" class="refinement" name="Brand16" value="900234" analyticstype="Brand" analyticsval="Cartier" type="checkbox">
+								<span class="OneLinkNoTx">Cartier</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand17" class="refinement" name="Brand17" value="900157" analyticstype="Brand" analyticsval="Caudalie" type="checkbox">
+								<span class="OneLinkNoTx">Caudalie</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand18" class="refinement" name="Brand18" value="900104" analyticstype="Brand" analyticsval="Charlotte Ronson" type="checkbox">
+								<span class="OneLinkNoTx">Charlotte Ronson</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand19" class="refinement" name="Brand19" value="900190" analyticstype="Brand" analyticsval="Chloe" type="checkbox">
+								<span class="OneLinkNoTx">Chloe</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand20" class="refinement" name="Brand20" value="900224" analyticstype="Brand" analyticsval="CLEAN" type="checkbox">
+								<span class="OneLinkNoTx">CLEAN</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand21" class="refinement" name="Brand21" value="900162" analyticstype="Brand" analyticsval="Clinique" type="checkbox">
+								<span class="OneLinkNoTx">Clinique</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand22" class="refinement" name="Brand22" value="900192" analyticstype="Brand" analyticsval="COACH" type="checkbox">
+								<span class="OneLinkNoTx">COACH</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand23" class="refinement" name="Brand23" value="900143" analyticstype="Brand" analyticsval="D&amp;G" type="checkbox">
+								<span class="OneLinkNoTx">D&amp;G</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand24" class="refinement" name="Brand24" value="900009" analyticstype="Brand" analyticsval="Diane von Furstenberg" type="checkbox">
+								<span class="OneLinkNoTx">Diane von Furstenberg</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand25" class="refinement" name="Brand25" value="900187" analyticstype="Brand" analyticsval="Diesel" type="checkbox">
+								<span class="OneLinkNoTx">Diesel</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand26" class="refinement" name="Brand26" value="900031" analyticstype="Brand" analyticsval="Dior" type="checkbox">
+								<span class="OneLinkNoTx">Dior</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand27" class="refinement" name="Brand27" value="1375145" analyticstype="Brand" analyticsval="Disney Collection" type="checkbox">
+								<span class="OneLinkNoTx">Disney Collection</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand28" class="refinement" name="Brand28" value="900092" analyticstype="Brand" analyticsval="DKNY" type="checkbox">
+								<span class="OneLinkNoTx">DKNY</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand29" class="refinement" name="Brand29" value="900223" analyticstype="Brand" analyticsval="Dolce &amp; Gabbana" type="checkbox">
+								<span class="OneLinkNoTx">Dolce &amp; Gabbana</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand30" class="refinement" name="Brand30" value="900019" analyticstype="Brand" analyticsval="Donna Karan" type="checkbox">
+								<span class="OneLinkNoTx">Donna Karan</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand31" class="refinement" name="Brand31" value="1010450" analyticstype="Brand" analyticsval="EDWARD BESS" type="checkbox">
+								<span class="OneLinkNoTx">EDWARD BESS</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand32" class="refinement" name="Brand32" value="900191" analyticstype="Brand" analyticsval="Escada" type="checkbox">
+								<span class="OneLinkNoTx">Escada</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand33" class="refinement" name="Brand33" value="900218" analyticstype="Brand" analyticsval="Fendi" type="checkbox">
+								<span class="OneLinkNoTx">Fendi</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand34" class="refinement" name="Brand34" value="900055" analyticstype="Brand" analyticsval="Fresh" type="checkbox">
+								<span class="OneLinkNoTx">Fresh</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand35" class="refinement" name="Brand35" value="900126" analyticstype="Brand" analyticsval="Giorgio Armani" type="checkbox">
+								<span class="OneLinkNoTx">Giorgio Armani</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand36" class="refinement" name="Brand36" value="900185" analyticstype="Brand" analyticsval="Givenchy" type="checkbox">
+								<span class="OneLinkNoTx">Givenchy</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand37" class="refinement" name="Brand37" value="900043" analyticstype="Brand" analyticsval="Gucci" type="checkbox">
+								<span class="OneLinkNoTx">Gucci</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand38" class="refinement" name="Brand38" value="900138" analyticstype="Brand" analyticsval="Guerlain" type="checkbox">
+								<span class="OneLinkNoTx">Guerlain</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand39" class="refinement" name="Brand39" value="900082" analyticstype="Brand" analyticsval="Hampton Sun" type="checkbox">
+								<span class="OneLinkNoTx">Hampton Sun</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand40" class="refinement" name="Brand40" value="900014" analyticstype="Brand" analyticsval="Hanae Mori" type="checkbox">
+								<span class="OneLinkNoTx">Hanae Mori</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand41" class="refinement" name="Brand41" value="900174" analyticstype="Brand" analyticsval="Hello Kitty" type="checkbox">
+								<span class="OneLinkNoTx">Hello Kitty</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand42" class="refinement" name="Brand42" value="1121852" analyticstype="Brand" analyticsval="HERMÈS" type="checkbox">
+								<span class="OneLinkNoTx">HERMÈS</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand43" class="refinement" name="Brand43" value="1690430" analyticstype="Brand" analyticsval="I LOVE NEW YORK by Bond No. 9" type="checkbox">
+								<span class="OneLinkNoTx">I LOVE NEW YORK by Bond No. 9</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand44" class="refinement" name="Brand44" value="900163" analyticstype="Brand" analyticsval="Illamasqua" type="checkbox">
+								<span class="OneLinkNoTx">Illamasqua</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand45" class="refinement" name="Brand45" value="900069" analyticstype="Brand" analyticsval="Issey Miyake" type="checkbox">
+								<span class="OneLinkNoTx">Issey Miyake</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand46" class="refinement" name="Brand46" value="900007" analyticstype="Brand" analyticsval="Jean Paul Gaultier" type="checkbox">
+								<span class="OneLinkNoTx">Jean Paul Gaultier</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand47" class="refinement" name="Brand47" value="900089" analyticstype="Brand" analyticsval="Jennifer Aniston" type="checkbox">
+								<span class="OneLinkNoTx">Jennifer Aniston</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand48" class="refinement" name="Brand48" value="1041010" analyticstype="Brand" analyticsval="JIMMY CHOO" type="checkbox">
+								<span class="OneLinkNoTx">JIMMY CHOO</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand49" class="refinement" name="Brand49" value="900094" analyticstype="Brand" analyticsval="Juicy Couture" type="checkbox">
+								<span class="OneLinkNoTx">Juicy Couture</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand50" class="refinement" name="Brand50" value="900102" analyticstype="Brand" analyticsval="JUSTIN BIEBER" type="checkbox">
+								<span class="OneLinkNoTx">JUSTIN BIEBER</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand51" class="refinement" name="Brand51" value="900075" analyticstype="Brand" analyticsval="Kat Von D" type="checkbox">
+								<span class="OneLinkNoTx">Kat Von D</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand52" class="refinement" name="Brand52" value="900002" analyticstype="Brand" analyticsval="Kenzo" type="checkbox">
+								<span class="OneLinkNoTx">Kenzo</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand53" class="refinement" name="Brand53" value="1350010" analyticstype="Brand" analyticsval="L'Artisan Parfumeur" type="checkbox">
+								<span class="OneLinkNoTx">L'Artisan Parfumeur</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand54" class="refinement" name="Brand54" value="900056" analyticstype="Brand" analyticsval="L'Occitane" type="checkbox">
+								<span class="OneLinkNoTx">L'Occitane</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand55" class="refinement" name="Brand55" value="1322574" analyticstype="Brand" analyticsval="LADY GAGA" type="checkbox">
+								<span class="OneLinkNoTx">LADY GAGA</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand56" class="refinement" name="Brand56" value="900207" analyticstype="Brand" analyticsval="Lancôme" type="checkbox">
+								<span class="OneLinkNoTx">Lancôme</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand57" class="refinement" name="Brand57" value="900091" analyticstype="Brand" analyticsval="LAVANILA" type="checkbox">
+								<span class="OneLinkNoTx">LAVANILA</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand58" class="refinement" name="Brand58" value="900090" analyticstype="Brand" analyticsval="Marc Jacobs" type="checkbox">
+								<span class="OneLinkNoTx">Marc Jacobs</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand59" class="refinement" name="Brand59" value="1343717" analyticstype="Brand" analyticsval="MARCHESA" type="checkbox">
+								<span class="OneLinkNoTx">MARCHESA</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand60" class="refinement" name="Brand60" value="900017" analyticstype="Brand" analyticsval="Michael Kors" type="checkbox">
+								<span class="OneLinkNoTx">Michael Kors</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand61" class="refinement" name="Brand61" value="900129" analyticstype="Brand" analyticsval="Mustela" type="checkbox">
+								<span class="OneLinkNoTx">Mustela</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand62" class="refinement" name="Brand62" value="900148" analyticstype="Brand" analyticsval="Narciso Rodriguez" type="checkbox">
+								<span class="OneLinkNoTx">Narciso Rodriguez</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand63" class="refinement" name="Brand63" value="900036" analyticstype="Brand" analyticsval="Origins" type="checkbox">
+								<span class="OneLinkNoTx">Origins</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand64" class="refinement" name="Brand64" value="900112" analyticstype="Brand" analyticsval="Pacifica" type="checkbox">
+								<span class="OneLinkNoTx">Pacifica</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand65" class="refinement" name="Brand65" value="900029" analyticstype="Brand" analyticsval="Paco Rabanne" type="checkbox">
+								<span class="OneLinkNoTx">Paco Rabanne</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand66" class="refinement" name="Brand66" value="900005" analyticstype="Brand" analyticsval="Philosophy" type="checkbox">
+								<span class="OneLinkNoTx">Philosophy</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand67" class="refinement" name="Brand67" value="900035" analyticstype="Brand" analyticsval="Prada" type="checkbox">
+								<span class="OneLinkNoTx">Prada</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand68" class="refinement" name="Brand68" value="900248" analyticstype="Brand" analyticsval="Ralph Lauren" type="checkbox">
+								<span class="OneLinkNoTx">Ralph Lauren</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand69" class="refinement" name="Brand69" value="1040775" analyticstype="Brand" analyticsval="Roberto Cavalli" type="checkbox">
+								<span class="OneLinkNoTx">Roberto Cavalli</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand70" class="refinement" name="Brand70" value="900209" analyticstype="Brand" analyticsval="SEPHORA COLLECTION" type="checkbox">
+								<span class="OneLinkNoTx">SEPHORA COLLECTION</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand71" class="refinement" name="Brand71" value="900106" analyticstype="Brand" analyticsval="Soap &amp; Glory" type="checkbox">
+								<span class="OneLinkNoTx">Soap &amp; Glory</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand72" class="refinement" name="Brand72" value="900195" analyticstype="Brand" analyticsval="Stella McCartney" type="checkbox">
+								<span class="OneLinkNoTx">Stella McCartney</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand73" class="refinement" name="Brand73" value="900230" analyticstype="Brand" analyticsval="Taylor Swift" type="checkbox">
+								<span class="OneLinkNoTx">Taylor Swift</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand74" class="refinement" name="Brand74" value="900003" analyticstype="Brand" analyticsval="Thierry Mugler" type="checkbox">
+								<span class="OneLinkNoTx">Thierry Mugler</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand75" class="refinement" name="Brand75" value="900008" analyticstype="Brand" analyticsval="Tocca Beauty" type="checkbox">
+								<span class="OneLinkNoTx">Tocca Beauty</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand76" class="refinement" name="Brand76" value="900131" analyticstype="Brand" analyticsval="tokidoki" type="checkbox">
+								<span class="OneLinkNoTx">tokidoki</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand77" class="refinement" name="Brand77" value="1121609" analyticstype="Brand" analyticsval="TokyoMilk Dark" type="checkbox">
+								<span class="OneLinkNoTx">TokyoMilk Dark</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand78" class="refinement" name="Brand78" value="900215" analyticstype="Brand" analyticsval="TOM FORD" type="checkbox">
+								<span class="OneLinkNoTx">TOM FORD</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand79" class="refinement" name="Brand79" value="900042" analyticstype="Brand" analyticsval="Vera Wang" type="checkbox">
+								<span class="OneLinkNoTx">Vera Wang</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand80" class="refinement" name="Brand80" value="900155" analyticstype="Brand" analyticsval="Versace" type="checkbox">
+								<span class="OneLinkNoTx">Versace</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand81" class="refinement" name="Brand81" value="900196" analyticstype="Brand" analyticsval="Viktor &amp; Rolf" type="checkbox">
+								<span class="OneLinkNoTx">Viktor &amp; Rolf</span> </label>
+
+							<label class="checkbox">
+								<input id="Brand82" class="refinement" name="Brand82" value="900030" analyticstype="Brand" analyticsval="Yves Saint Laurent" type="checkbox">
+								<span class="OneLinkNoTx">Yves Saint Laurent</span> </label>
+
+						</div>
+
+					</div>
+					<div class="refinements checkboxes">
+						<a href="#" class="clear-link hide" data-multi="false">clear filter</a>
+						<h4>Formulation</h4>
+
+						<div class="checkbox-list">
+
+							<label class="checkbox">
+								<input id="Formulation83" class="refinement" name="Formulation83" value="103000" analyticstype="Formulation" analyticsval="Hair Mist" type="checkbox">
+								<span>Hair Mist</span> </label>
+
+							<label class="checkbox">
+								<input id="Formulation84" class="refinement" name="Formulation84" value="100082" analyticstype="Formulation" analyticsval="Liquid" type="checkbox">
+								<span>Liquid</span> </label>
+
+							<label class="checkbox">
+								<input id="Formulation85" class="refinement" name="Formulation85" value="100076" analyticstype="Formulation" analyticsval="Rollerball" type="checkbox">
+								<span>Rollerball</span> </label>
+
+							<label class="checkbox">
+								<input id="Formulation86" class="refinement" name="Formulation86" value="100072" analyticstype="Formulation" analyticsval="Spray" type="checkbox">
+								<span>Spray</span> </label>
+
+						</div>
+
+					</div>
+					<div class="refinements checkboxes">
+						<a href="#" class="clear-link hide" data-multi="false">clear filter</a>
+						<h4>Fragrance Family</h4>
+
+						<div class="checkbox-list">
+
+							<label class="checkbox">
+								<input id="Fragrance Family87" class="refinement" name="Fragrance Family87" value="100060" analyticstype="Fragrance Family" analyticsval="Floral" type="checkbox">
+								<span>Floral</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Family88" class="refinement" name="Fragrance Family88" value="100061" analyticstype="Fragrance Family" analyticsval="Fresh" type="checkbox">
+								<span>Fresh</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Family89" class="refinement" name="Fragrance Family89" value="100063" analyticstype="Fragrance Family" analyticsval="Warm &amp; Spicy" type="checkbox">
+								<span>Warm &amp; Spicy</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Family90" class="refinement" name="Fragrance Family90" value="100062" analyticstype="Fragrance Family" analyticsval="Woody &amp; Earthy" type="checkbox">
+								<span>Woody &amp; Earthy</span> </label>
+
+						</div>
+
+					</div>
+					<div class="refinements checkboxes">
+						<a href="#" class="clear-link hide" data-multi="false">clear filter</a>
+						<h4>Fragrance Impression</h4>
+
+						<div class="checkbox-list">
+
+							<label class="checkbox">
+								<input id="Fragrance Impression91" class="refinement" name="Fragrance Impression91" value="100093" analyticstype="Fragrance Impression" analyticsval="Addictive" type="checkbox">
+								<span>Addictive</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Impression92" class="refinement" name="Fragrance Impression92" value="100097" analyticstype="Fragrance Impression" analyticsval="Casual" type="checkbox">
+								<span>Casual</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Impression93" class="refinement" name="Fragrance Impression93" value="100094" analyticstype="Fragrance Impression" analyticsval="Chic" type="checkbox">
+								<span>Chic</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Impression94" class="refinement" name="Fragrance Impression94" value="100096" analyticstype="Fragrance Impression" analyticsval="Playful" type="checkbox">
+								<span>Playful</span> </label>
+
+							<label class="checkbox">
+								<input id="Fragrance Impression95" class="refinement" name="Fragrance Impression95" value="100099" analyticstype="Fragrance Impression" analyticsval="Polished" type="checkbox">
+								<span>Polished</span> </label>
+
+						</div>
+
+					</div>
+					<div class="refinements checkboxes">
+						<a href="#" class="clear-link hide" data-multi="false">clear filter</a>
+						<h4>Size</h4>
+
+						<div class="checkbox-list">
+
+							<label class="checkbox">
+								<input id="Size96" class="refinement" name="Size96" value="100129" analyticstype="Size" analyticsval="Travel-size" type="checkbox">
+								<span>Travel-size</span> </label>
+
+							<label class="checkbox">
+								<input id="Size97" class="refinement" name="Size97" value="100128" analyticstype="Size" analyticsval="Value-size" type="checkbox">
+								<span>Value-size</span> </label>
+
+						</div>
+
+					</div>
+					<div class="refinements slider-bar">
+						<a href="#" class="clear-link hide">clear filter</a>
+						<h4>price range</h4>
+
+						<div class="slider-output">
+							<input class="slider-amount" readonly="readonly" type="text">
+						</div>
+						<div id="price range" class="slider-range refinement ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+							<div style="left: 0%; width: 100%;" class="ui-slider-range ui-widget-header"></div><a style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 100%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+						</div>
+						<div class="orig-range clearfix">
+							<div class="price-min">
+								<span>$5</span>
+							</div>
+							<div class="price-max">
+								<span>$255</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="display: block;" class="clear-all-filters">
+					<input value="clear all filters" class="btn" type="submit">
+				</div>
+				<div class="social-links">
+					<div class="like-button">
+						<fb:like layout="button_count" show_faces="false" font="arial"></fb:like>
+					</div>
+					<div id="fb-root"></div>
+					<div id="pinterest-root" class="pinterest hidden">
+						<a data-pin-config="beside" href="#" data-pin-do="buttonPin"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="main" class="maincontent">
+			<div id="banner">
+				<ul class="row-component clearfix ">
+					<li class="section">
+						<div class="imageComponent "><img src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_dek.jpg" usemap="#2901241_imageMap" height="230" width="289"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+							<map name="2901241_imageMap">
+								<area shape="rect" coords="26,160,148,184" href="/contentStore/mediaContentTemplate.jsp?mediaId=17700075" alt="Sephora Favorites Fragrance">
+							</map>
+							<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+						</div>
+					</li>
+					<li class="section">
+						<div class="slideshow carousel show-1 speed-840 animation-0 circle  " style="width: 488px;height: 230px">
+							<ul style="width: 3904px; left: -488px;" class="carousel-inner">
+								<li style="width:488px" data-index="5">
+									<div class="imageComponent "><img jailed="true" style="display: block;" src="http://www.sephora.com/contentimages/categories/nthlevel/012913_womens_frag_nth_page_6.jpg" usemap="#2901244_imageMap" height="230" width="488"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901244_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/j-adore-eau-de-parfum-P6430?skuId=420570" alt="Dior J'adore">
+											<area shape="rect" coords="246,4,445,226" href="/light-blue-P12420?skuId=563338" alt="Dolce&amp;Gabanna Light Blue ">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="0">
+									<div class="imageComponent "><img src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_1.jpg" usemap="#2901252_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901252_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/seebychloe-P377778?skuId=1491232" alt="Chloe See By Chloe">
+											<area shape="rect" coords="246,4,445,226" href="/coach-love-P377580?skuId=1498328" alt="COACH Love">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="1">
+									<div class="imageComponent "><img jailed="true" style="display: block;" src="http://www.sephora.com/contentimages/categories/nthlevel/012913_womens_frag_nth_page_2.jpg" usemap="#2901251_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901251_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/florabotanica-P377672?skuId=1480243" alt="Balenciaga Florabotanica">
+											<area shape="rect" coords="246,4,445,226" href="/premi-re-by-gucci-P375715" alt="Gucci Premiere">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="2">
+									<div class="imageComponent "><img src="" data-src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_3.jpg" usemap="#2901250_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901250_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/flowerbomb-P255506?skuId=1233139" alt="Viktor &amp; Rolf Flowerbomb">
+											<area shape="rect" coords="246,4,445,226" href="/marchesa-P375714?skuId=1435270" alt="Marchesa Parfum D'extase">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="3">
+									<div class="imageComponent "><img src="" data-src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_4.jpg" usemap="#2901248_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901248_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/dot-P375631?skuId=1450592" alt="Marc Jacobs DOT">
+											<area shape="rect" coords="246,4,445,226" href="/l-i-l-y-P375718?skuId=1418532" alt="Stella McCartney L.I.L.Y">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="4">
+									<div class="imageComponent "><img src="" data-src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_5.jpg" usemap="#2901246_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901246_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/couture-la-la-P377557?skuId=1466671" alt="Juicy Couture Couture La La">
+											<area shape="rect" coords="246,4,445,226" href="/la-vie-est-belle-P375939?skuId=1459999" alt="Lancome La Vie Est Belle">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="5">
+									<div class="imageComponent "><img src="" data-src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_6.jpg" usemap="#2901244_imageMap" height="230" width="488"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901244_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/j-adore-eau-de-parfum-P6430?skuId=420570" alt="Dior J'adore">
+											<area shape="rect" coords="246,4,445,226" href="/light-blue-P12420?skuId=563338" alt="Dolce&amp;Gabanna Light Blue ">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+								<li style="width:488px" data-index="0">
+									<div class="imageComponent "><img src="" data-src="/contentimages/categories/nthlevel/012913_womens_frag_nth_page_1.jpg" usemap="#2901252_imageMap" height="230" width="487"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+										<map name="2901252_imageMap">
+											<area shape="rect" coords="22,5,239,226" href="/seebychloe-P377778?skuId=1491232" alt="Chloe See By Chloe">
+											<area shape="rect" coords="246,4,445,226" href="/coach-love-P377580?skuId=1498328" alt="COACH Love">
+										</map>
+										<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+									</div>
+								</li>
+							</ul>
+							<div class="carousel-control carousel-prev" analytics="prev">
+								<span class="icon"></span>
+							</div>
+							<div class="carousel-control carousel-next" analytics="next">
+								<span class="icon"></span><span class="count">1/6</span>
+							</div>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+			<div style="display: none;" class="search-banner container">
+				<div class="search-header">
+					<h1></h1>
+				</div>
+			</div>
+			<div style="display: none;" class="brand-box flush no-links container"></div><div class="authored-content"></div>
+
+			<div class="search-results">
+
+				<div class="your-choices">
+					<div class="your-choices-content container" style="">
+						<h3 class="hidden">your filters:</h3>
+						<ul class="container hidden"></ul>
+						<p class="clear-link hidden">
+							<a href="#">clear filter</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="total-items">
+					<br>
+				</div>
+				<div class="apple_pagination">
+					<%= will_paginate @products %>
+					<span>Найдено <%= @products.size %> товаров</span>
+				</div>
+
+				<div class="product-grid container" style="display: block;">
+					<% @products.each do |product| %>
+					<%= link_to(product) do%>
+
+					<div class="product-item">
+						<%= link_to (image_tag product.assets[0].asset(:thumb), :height => "135"), product, :class => "product-image" %>
+						<span class="product-info"> <span class="name OneLinkNoTx"> <span class="brand OneLinkNoTx"><%= product.brands %></span> <span><%= product.name %></span> </span> <span class="product-price "> <span class="list-price"><%= product.price %> грн.</span> </span> <span class="flags"><%= product.product_type %> </span></span>
+					</div>
+					<% end %>
+					<% end %>
+
+					<div class="pagination bottom container">
+
+						<div class="apple_pagination">
+							<%= will_paginate @products %>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<img id="loader-precached" src="/images/loader_black_155_V2.gif" alt="" class="hidden" height="155" width="155">
+
+	<div class="footer">
+		<div class="footer-banner">
+
+			<div class="imageComponent "><img src="/contentimages/homepage/012913/socialfooter_appstorebadge_update_012913.jpg" usemap="#2850693_imageMap" height="87" width="980"><!-- Moved map definition inside imageComponent div to fix the issue in firefox -->
+				<map name="2850693_imageMap">
+					<area shape="rect" coords="0,20,166,51" href="http://www.facebook.com/Sephora?ref=ts" alt="Facebook" target="_blank">
+					<area shape="rect" coords="200,18,354,51" href="http://www.sephora.com/pinterest?om_mmc=oth-pinterest-2012-landingpage&amp;MobileOptOut=1" alt="Pinterest">
+					<area shape="rect" coords="387,20,704,51" href="http://itunes.apple.com/us/app/sephora-to-go/id393328150?mt=8" alt="iPhone" target="_blank">
+					<area shape="rect" coords="735,19,977,51" href="http://itunes.apple.com/us/app/sephora-app-for-ipad/id449000401?mt=8" alt="iPad" target="_blank">
+				</map>
+				<!-- Moved map definition inside imageComponent div to fix the issue in firefox ends -->
+			</div>
+		</div>
+		<div class="footer-actions container">
+			<div class="email-signup container">
+				<label for="email-signup-field">sign up for sephora emails</label>
+				<input id="email-signup-field" maxlength="60" class="email-signup-field" placeholder="E-MAIL" type="text">
+				<input class="btn-submit icon" name="go-email" value="" type="submit">
+				<div id="email-error" class="modal modal-small">
+					<h2>OOPS...</h2>
+					<p class="error-message" style="font-size: 13px">
+						Please re-enter your e-mail address using the proper format.
+					</p>
+					<div class="icon close"></div>
+				</div>
+				<div id="email-thanks" class="modal modal-small">
+					<h2>THANK YOU!</h2>
+					<p class="success-message" style="font-size: 13px">
+						Thanks for signing up for Sephora e-mails.
+					</p>
+					<div class="icon close"></div>
+				</div>
+			</div>
+			<div class="store-locator container">
+				<label for="store_zip">store locations &amp; events</label>
+				<form id="store-locator" name="storeLocation" action="/about/storelocation.jsp">
+					<input name="_dyncharset" value="UTF-8" type="hidden">
+					<input name="_dynSessConf" value="-2262788601671825071" type="hidden">
+					<input name="country" id="countryId" value="US" type="hidden">
+					<input id="store_zip" name="store_zip" class="store-locator-field" placeholder="ZIPCODE" type="text">
+					<input class="btn-submit icon" name="go-store" value="" type="submit">
+				</form>
+			</div>
+		</div>
+		<div class="footer-nav container">
+			<div class="footer-links clearfix">
+				<ul style="height: 102px;" class="height-reg">
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10000020">About Sephora</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10800116">Careers</a>
+					</li>
+					<li>
+						<a href="/sephora-gives-back">Sephora Gives Back</a>
+					</li>
+					<li>
+						<a href="/international/international.jsp">Sephora International</a>
+					</li>
+					<li>
+						<a href="/beautystudio">Store Beauty Services </a>
+					</li>
+					<li>
+						<a href="/store-locations-events?mediaId=16400021">Store Locations &amp; Events</a>
+					</li>
+				</ul>
+				<ul style="height: 102px;" class="height-reg">
+					<li class="OneLinkNoTx">
+						<a href="/profile/MyAccount/beautyInsider/beautyInsider.jsp">Beauty Insider</a>
+					</li>
+					<li>
+						<a href="/profile/MyAccount/myAccountLoading.jsp">My Account</a>
+					</li>
+					<li>
+						<a href="/profile/MyAccount/MyList/myList.jsp">Shopping List</a>
+					</li>
+					<li>
+						<a href="/customerService/customerServiceTemplate.jsp?mediaId=12300026#ShippingCosts">Shipping</a>
+					</li>
+					<li>
+						<a href="/customerService/customerServiceTemplate.jsp?mediaId=12300058">Order Status</a>
+					</li>
+					<li>
+						<a href="/sitemap/departments">Sitemap</a>
+					</li>
+				</ul>
+				<ul style="height: 102px;" class="height-reg">
+					<li>
+						<a href="/customerService/customerServiceTemplate.jsp?mediaId=9300044">Customer Service</a>
+					</li>
+					<li>
+						<a href="/customerService/contactUs.jsp?mediaId=10700018">Contact Us</a>
+					</li>
+					<li>
+						<a href="/giftcards">Gift Card</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10800114">Affiliates</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=12700031">Supply Chain Transparency</a>
+					</li>
+				</ul>
+				<ul style="height: 102px;" class="height-reg">
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=12800020">What's New</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=14300062">Bestsellers</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=14000018">Travel</a>
+					</li>
+					<li>
+						<a href="/contentStore/mediaContentTemplate.jsp?mediaId=11000020">Weekly Specials</a>
+					</li>
+					<li>
+						<a href="/search/saleResults.jsp?keyword=Sale">Sale</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="localization-social clearfix">
+			<ul class="localization clearfix">
+				<li>
+					Now Shopping:
+				</li>
+				<li class="us-site">
+					<a title="US Site" class="flag selected" href="/?country_switch=us&amp;lang=en&amp;redirect=homepage"><span class="icon"></span>US</a>
+				</li>
+				<li class="separator">
+					|
+				</li>
+				<li class="ca-site">
+					<a title="Canada Site" class="flag " href="/?country_switch=ca&amp;lang=en&amp;redirect=homepage"><span class="icon"></span>Canada</a><span class="language"> <a href="/?country_switch=ca&amp;lang=en&amp;redirect=homepage">English</a> <span class="separator">|</span> <a href="/?country_switch=ca&amp;lang=fr&amp;redirect=homepage">Français</a> </span>
+				</li>
+			</ul>
+			<div class="social clearfix">
+				<a href="http://facebook.com/Sephora" class="icon-facebook" target="_blank">Facebook</a>
+				<a href="http://youtube.com/Sephora" class="icon-youtube" target="_blank">YouTube</a>
+				<a href="https://plus.google.com/+Sephora/posts" class="icon-gplus" target="_blank">Google+</a>
+				<a href="http://theglossy.sephora.com" class="icon-tumblr" target="_blank">Tumblr</a>
+				<a href="http://twitter.com/sephora" class="icon-twitter" target="_blank">Twitter</a>
+				<a href="http://pinterest.com/sephora/" class="icon-pinterest" target="_blank">Pinterest</a>
+				<a href="http://instagram.com/sephora" class="icon-instagram" target="_blank">Instagram</a>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>
+				Copyright &copy; 2013 Sephora USA, Inc. All rights reserved. &nbsp; <a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=11300018">Terms of Use</a> &nbsp;|&nbsp; <a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=12300066">Privacy Policy</a>
+				<br>
+				<span class="OneLinkNoTx">1-877-SEPHORA (1-877-737-4672)</span>
+			</p>
+		</div>
+	</div>
+	<div class="inline-basket">
+		<div class="inline-basket-content">
+			<h2 class="helvetica-light">just added to basket</h2>
+			<span id="currency" data-currency="$"></span>
+			<div class="basket-line-items"></div>
+			<div class="actions clearfix">
+				<a class="btn btn-continue-shopping" href="#"><i class="arrow-mini arrow-left"></i> Continue Shopping</a><a style="display: none" class="btn btn-primary btn-my-list" href="/profile/MyAccount/MyList/myList.jsp">Shopping List <i class="arrow-mini arrow-right"></i></a><a class="btn btn-primary btn-checkout" href="/basket/basket.jsp">basket <i class="arrow-mini arrow-right"></i></a>
+			</div>
+		</div>
+		<div class="inline-basket-msg hide">
+			<div class="msg-free-ship">
+				<h4>free shipping!</h4>
+				<p class="hide">
+					Add $<span class="amount-to-free-shipping"></span> to your order to qualify.
+				</p>
+				<p class="hide">
+					You now qualify for FREE STANDARD SHIPPING!
+				</p>
+			</div>
+			<div class="msg-vib-state">
+				<img src="/images/vib-stacked-sm.png" alt="VIB Beauty Insider" height="35" width="139">
+				<p></p>
+			</div>
+			<div class="errors hide"></div>
+		</div>
+		<div class="close icon"></div>
+	</div>
+	<div class="flame flame-bot"></div>
+	<a href="javascript:UserVoice.showPopupWidget();" class="btn btn-primary" id="btn-feedback">Give feedback now <i class="arrow-right"></i></a>
+	<script>
+		var uvOptions = {};
+		(function() {
+			var uv = document.createElement('script');
+			uv.type = 'text/javascript';
+			uv.async = true;
+			uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/rxRiakXW2Mu0gudNSnaQjA.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(uv, s);
+		})();
+	</script>
+</div>
+<div id="quick-look" class="popup quick-look">
+	<div class="container">
+		<div class="popup-content container"></div>
+	</div>
+	<div class="icon close"></div>
+</div>
+<div id="mini-quick-look" class="popup quick-look mini">
+	<div class="container">
+		<div class="popup-content container"></div>
+	</div>
+	<div class="icon close"></div>
+</div>
+<div id="email-stock" class="popup email-stock">
+	<div class="popup-content"></div>
+	<div class="icon close"></div>
+</div>
+<div class="modal" id="modal-content-component">
+	<div class="modal-body"></div>
+	<div class="icon close"></div>
+</div>
+<!--[if lt IE 9 ]> <script src="/javascripts/json2.js"></script> <![endif]-->
+<!--[if IE 7]><script src="/javascripts/jquery.ba-hashchange.js"></script><![endif]-->
+<script src="/javascripts/sephora.search.js"></script>
+<script src="/javascripts/analytics/wa.js"></script>
+<script src="/javascripts/sephora.analytics.js"></script>
+<script>
+	wa.path = ["Fragrance", "Women"];
+	wa.country = "us";
+	wa.biType = "non-bi";
+	wa.signInStatus = "unrecognized";
+	wa.pageType = "category search";
+	wa.errorMsg = [];
+	$('.error-message:visible').each(function() {
+		var error = $.trim($(this).text());
+		if (error.length > 0) {
+			wa.errorMsg.push(error);
+		}
+	});
+	wa.integrationConfig = {
+		'enableLinkSharePixel' : 'true',
+		'enableChannelIntelligence' : 'true'
+	};
+	var errorForm = $('.error-message:visible').closest('form').get(0);
+	if (errorForm && errorForm.name) {
+		wa.formName = errorForm.name;
+	}
+
+	(( typeof Sephora !== "undefined") && ("analytics" in Sephora) && ("extendWA" in Sephora.analytics)) ? Sephora.analytics.extendWA() : $("body").bind("SephoraAnalyticsReady", function() {
+		Sephora.analytics.extendWA();
+	});
+
+	wa.loadWa2(); 
+</script>
+<script>
+	$(function() {
+		Sephora.init();
+	}); 
+</script>
+
+<script>
+	if ( typeof Sephora !== "undefined") {
+		Sephora.wa_data_ready = true;
+		$("body").trigger("wa_data_ready");
+	}
+</script>
+<script type="text/javascript">
+	( function() {
+			if (Sephora.wa_data_ready === true) {
+				Sephora.tagManager();
+			} else {
+				$("body").one("wa_data_ready", Sephora.tagManager);
+			}
+		}()); 
+</script>
+
+<noscript>
+	<iframe src="//s.thebrighttag.com/iframe?c=MWKB9CB" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</noscript>
+<noscript>
+	<img src="http://pixel.quantserve.com/pixel/p-efJbv8XhssAmI.gif" class="hidden" height="1" width="1" alt="Quantcast"/>
+</noscript>
+
+<ul style="z-index: 1; top: 0px; left: 0px; display: none;" aria-activedescendant="ui-active-menuitem" role="listbox" class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all"></ul>

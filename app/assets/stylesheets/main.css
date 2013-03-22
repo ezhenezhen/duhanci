@@ -625,7 +625,6 @@ button.btn.btn-mini, input.btn.btn-mini[type="submit"] {
     margin: 0;
 }
 .pagination {
-    padding: 0 0 30px;
     position: relative;
 }
 .pagination.bottom {
@@ -2124,7 +2123,7 @@ ul.ui-autocomplete .ui-menu-item a.ui-state-active strong, ul.ui-autocomplete .u
     word-wrap: break-word;
 }
 .product-item .product-image {
-    display: block;
+	display: block;
     position: relative;
     text-align: center;
 }
@@ -4021,4 +4020,36 @@ ul.ui-autocomplete .ui-menu-item a {
 }
 .clear {
     clear: both;
+}
+
+.apple_pagination {
+    background: none repeat scroll 0 0 #EBEBEB;
+    border: 1px solid #EBEBEB;
+    cursor: default;
+    padding: 1em;
+    text-align: center;
+}
+.apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em;
+}
+.apple_pagination .disabled {
+    color: #AAAAAA;
+}
+.apple_pagination .current {
+    background-color: #BEBEBE;
+    border-radius: 1em 1em 1em 1em;
+    display: inline-block;
+    font-style: normal;
+    font-weight: bold;
+    height: 1.4em;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    width: 1.4em;
+}
+.apple_pagination a {
+    color: black;
+    text-decoration: none;
+}
+.apple_pagination a:hover, .apple_pagination a:focus {
+    text-decoration: underline;
 }

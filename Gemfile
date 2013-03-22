@@ -7,6 +7,8 @@ gem 'paperclip'
 gem 'magic_encoding'
 gem 'thin'
 gem 'will_paginate'
+gem 'cloudinary'
+gem 'carrierwave'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

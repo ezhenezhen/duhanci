@@ -32,6 +32,7 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    aws_cf_signer (0.1.1)
     better_errors (0.7.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -39,8 +40,14 @@ GEM
       debug_inspector (>= 0.0.1)
     bluecloth (2.2.0)
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     childprocess (0.3.8)
       ffi (~> 1.0, >= 1.0.11)
+    cloudinary (1.0.49)
+      aws_cf_signer
+      rest-client
     cocaine (0.4.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -177,6 +184,8 @@ DEPENDENCIES
   annotate
   better_errors
   binding_of_caller
+  carrierwave
+  cloudinary
   coffee-rails (~> 3.2.1)
   debugger
   formatize

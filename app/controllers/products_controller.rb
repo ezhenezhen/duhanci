@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'will_paginate/array'
 require 'nokogiri'
 require 'open-uri'
 
@@ -21,7 +22,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.find(:all, :conditions => {:parent_id => nil})
+    products = Product.find(:all, :conditions => {:parent_id => nil})
+    @products = products.paginate(:page => params[:page], :per_page => 40)
 
     respond_to do |format|
       format.html # index.html.erb
