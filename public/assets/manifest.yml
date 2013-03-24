@@ -27,6 +27,10 @@ rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-7ce5630ae61644bb95b77f757d6436b0.js
 application/index.js: application-7ce5630ae61644bb95b77f757d6436b0.js
+carousel.js: carousel-e6d41ec0e6f8415e3dd4c96747941c6a.js
+carousel/index.js: carousel-e6d41ec0e6f8415e3dd4c96747941c6a.js
+jquery.carouFredSel-6.2.0.js: jquery.carouFredSel-6.2.0-d98307466670432356a63f9f769444a5.js
+jquery/index.carouFredSel-6.2.0.js: jquery.carouFredSel-6.2.0-d98307466670432356a63f9f769444a5.js
 jquery.fancybox.js: jquery.fancybox-ccf8f8292e528544b762b60c424c9e80.js
 jquery/index.fancybox.js: jquery.fancybox-ccf8f8292e528544b762b60c424c9e80.js
 jquery.js: jquery-8e3eeec9a63c444507aff45ee83b99f1.js
@@ -39,6 +43,8 @@ application.css: application-acba8df4715d725a53fac58cfbebc112.css
 application/index.css: application-acba8df4715d725a53fac58cfbebc112.css
 basket.css: basket-4aca44fad41dbab9121cd33cb586e048.css
 basket/index.css: basket-4aca44fad41dbab9121cd33cb586e048.css
+carousel.css: carousel-17056c476ed724572da4a53668d2f000.css
+carousel/index.css: carousel-17056c476ed724572da4a53668d2f000.css
 international.css: international-fe7f7ec7fc3946008072d8c59cd4df94.css
 international/index.css: international-fe7f7ec7fc3946008072d8c59cd4df94.css
 jquery.fancybox.css: jquery.fancybox-050b2ca8aee83d13b1a56246b120b193.css

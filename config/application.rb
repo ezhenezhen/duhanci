@@ -77,6 +77,9 @@ module Duhanci
     config.assets.precompile += ['jquery.fancybox.css']
     config.assets.precompile += ['jquery.fancybox.js']
     config.assets.precompile += ['jquery.js']
+    config.assets.precompile += ['jquery.carouFredSel-6.2.0.js']
+    config.assets.precompile += ['carousel.js']
+    config.assets.precompile += ['carousel.css']
 
 
 
