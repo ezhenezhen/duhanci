@@ -27,7 +27,7 @@
 						<h4>Бренд:</h4>
 						<div class="checkbox-list custom-scroll">
 							<%i=1 %>
-						<% for brand in @brands %>
+						<% for brand in @all_brands %>
 						<label class="checkbox">
 								<input id="Brand<%= i %>" class="refinement" name="Formulation83" value="103000" analyticstype="Formulation" analyticsval="Hair Mist" type="checkbox">
 								<span><%= brand %></span> </label>
@@ -81,11 +81,11 @@
 				<div id="pager"></div>
 				<div class="inner">
 					<div id="carousel">
-						<%= image_tag "/rat.jpg", :size => "700x310"%>
-						<%= image_tag "/walle.jpg", :size => "700x310"%>
-						<%= image_tag "/up.jpg", :size => "700x310" %>
-						<%= image_tag "/toystory.jpg", :size => "700x310" %>
-						<%= image_tag "/bugs.jpg", :size => "700x310" %>
+						<%= image_tag "/rat.jpg", :size => "550x310"%>
+						<%= image_tag "/walle.jpg", :size => "550x310"%>
+						<%= image_tag "/up.jpg", :size => "550x310" %>
+						<%= image_tag "/toystory.jpg", :size => "550x310" %>
+						<%= image_tag "/bugs.jpg", :size => "550x310" %>
 					</div>
 				</div>
 			</div>
@@ -108,9 +108,12 @@
 					</div>
 				</div>
 
+				
+
 				<div class="total-items">
 					<br>
 				</div>
+				
 				<div class="apple_pagination">
 					<%= will_paginate @products %>
 					<span>Найдено <%= @all_products.size %> товаров</span>
@@ -135,6 +138,8 @@
 					</div>
 
 				</div>
+				
+				
 
 			</div>
 

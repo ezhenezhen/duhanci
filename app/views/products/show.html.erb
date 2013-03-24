@@ -1,815 +1,823 @@
-		<div class="wrapper">
+<div class="wrapper">
 
-			<div id="fb-root"></div>
-			<input id="imagePath" value="/images" type="hidden" />
-			<input id="defaultImage" value="/image-not-available-36.png" type="hidden" />
+	<div id="fb-root"></div>
+	<input id="imagePath" value="/images" type="hidden" />
+	<input id="defaultImage" value="/image-not-available-36.png" type="hidden" />
 
-			<div class="breadcrumb container">
-				<ul>
-					<li>
-						<%= link_to Duhanci, root_path %>
-					</li>
-					<li class="current">
-						<a href="/women-fragrance">Women</a>
-					</li>
-					<li class="view-all">
-						<a href="/stella-mccartney">view all <span class="underline"><span class="OneLinkNoTx">Stella McCartney</span> products</span></a>
-					</li>
-				</ul>
-			</div>
-			<div id="product-content" class="content container product">
-				<div class="sidebar">
-					<div class="sidebar-content">
-						<div class="hero">
-							<div class="hero-main-image">
-								<%= image_tag @product.assets[0].asset, :width => "250", :id => "hero" %>
-							</div>
-							<div class="beauty-insider">
-								<img src="/images/logo-beautyinsider-vertical.gif" alt="beauty insider" width="15" height="84" style="display:none">
-							</div>
-							<div class="seal">
-								<img src="/seal-naturals.png" alt="heroimage" style="display: none">
-							</div>
-							<div class="messages">
-								<p class="flags"></p>
-							</div>
-							<div id="sku692806-thumbs" class="image-selector border container main-product-thumbnails"
+	<div class="breadcrumb container">
+		<ul>
+			<li>
+				<%= link_to Duhanci, root_path %>
+			</li>
+			<li class="current">
+				<a href="/women-fragrance">Women</a>
+			</li>
+			<li class="view-all">
+				<a href="/stella-mccartney">view all <span class="underline"><span class="OneLinkNoTx">Stella McCartney</span> products</span></a>
+			</li>
+		</ul>
+	</div>
+	<div id="product-content" class="content container product">
+		<div class="sidebar">
+			<div class="sidebar-content">
+				<div class="hero">
+					<div class="hero-main-image">
+						<%= image_tag @product.assets[0].asset, :width => "250", :id => "hero" %>
+					</div>
+					<div class="beauty-insider">
+						<img src="/images/logo-beautyinsider-vertical.gif" alt="beauty insider" width="15" height="84" style="display:none">
+					</div>
+					<div class="seal">
+						<img src="/seal-naturals.png" alt="heroimage" style="display: none">
+					</div>
+					<div class="messages">
+						<p class="flags"></p>
+					</div>
+					<div id="sku692806-thumbs" class="image-selector border container main-product-thumbnails"
 
-							style="display:none;">
-								<a id="sku-692806-0" href="#" class="product-thumb current"> <img src="/productimages/sku/s692806-main-thumb.jpg" alt="thumb-1" width="36" height="36" onerror='Sephora.ui.error.productImage(this, "/images/image-not-available-36.png");'> </a>
-								<br/>
-							</div>
-							<div class="view-larger-trigger">
+					style="display:none;">
+						<a id="sku-692806-0" href="#" class="product-thumb current"> <img src="/productimages/sku/s692806-main-thumb.jpg" alt="thumb-1" width="36" height="36" onerror='Sephora.ui.error.productImage(this, "/images/image-not-available-36.png");'> </a>
+						<br/>
+					</div>
+					<div class="view-larger-trigger">
 
-								<!--Fancybox script-->
-								<script type="text/javascript">
-									$(document).ready(function() {
-										$(".fancybox").fancybox();
-									});
-								</script>
+						<!--Fancybox script-->
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$(".fancybox").fancybox();
+							});
+						</script>
 
-								<% unless @product.assets.nil? %>
-								<% i=1 %>
-								<% while i < @product.assets.size %>
-								<a class="fancybox" rel="#modal-view-larger" href=<%= @product.assets[i].asset(:original) %>> </a>
-								<% i+=1 %>
-								<% end %>
-								<% end %>
+						<% unless @product.assets.nil? %>
+						<% i=1 %>
+						<% while i < @product.assets.size %>
+						<a class="fancybox" rel="#modal-view-larger" href=<%= @product.assets[i].asset(:original) %>> </a>
+						<% i+=1 %>
+						<% end %>
+						<% end %>
 
-								<a class="fancybox" rel="#modal-view-larger" href=<%= @product.assets[0].asset(:original) %>> увеличить <span class="icon"></span></a>
-							</div>
-						</div>
-						<div class="sidebar-extra">
-							<div class="product-reviews container">
-								<div id="BVCustomerRatings"></div>
-								<div id="BVCustomSummaryActions">
-									<div id="BVSecondaryCustomerRatings"></div>
-									<div id="BVQASummaryBoxContainer"></div>
-								</div>
-							</div>
-							<div class="share container">
-								<h3 class="helvetica-light">Поделиться:</h3>
-								<div class="social-links">
-
-									<div class="facebook">
-										<fb:like send="false" layout="button_count" width="90" show_faces="false" font="arial"></fb:like>
-									</div>
-									<div class="twitter">
-										<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-										<script>
-											! function(d, s, id) {
-												var js, fjs = d.getElementsByTagName(s)[0];
-												if (!d.getElementById(id)) {
-													js = d.createElement(s);
-													js.id = id;
-													js.src = "//platform.twitter.com/widgets.js";
-													fjs.parentNode.insertBefore(js, fjs);
-												}
-											}(document, "script", "twitter-wjs");
-										</script>
-									</div>
-
-									<div class="pinterest">
-
-									</div>
-								</div>
-
-							</div>
-
-						</div>
+						<a class="fancybox" rel="#modal-view-larger" href=<%= @product.assets[0].asset(:original) %>> увеличить <span class="icon"></span></a>
 					</div>
 				</div>
+				<div class="sidebar-extra">
+					<div class="product-reviews container">
+						<div id="BVCustomerRatings"></div>
+						<div id="BVCustomSummaryActions">
+							<div id="BVSecondaryCustomerRatings"></div>
+							<div id="BVQASummaryBoxContainer"></div>
+						</div>
+					</div>
+					<div class="share container">
+						<h3 class="helvetica-light">Поделиться:</h3>
+						<div class="social-links">
 
-				<div id="main" class="maincontent">
-					<div class="product-banner">
-						<a href="/stella-mccartney"> <img id="productBrandImg" src='/5689_logo_279.png' alt="stella-mccartney"/> </a>
+							<div class="facebook">
+								<fb:like send="false" layout="button_count" width="90" show_faces="false" font="arial"></fb:like>
+							</div>
+							<div class="twitter">
+								<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+								<script>
+									! function(d, s, id) {
+										var js, fjs = d.getElementsByTagName(s)[0];
+										if (!d.getElementById(id)) {
+											js = d.createElement(s);
+											js.id = id;
+											js.src = "//platform.twitter.com/widgets.js";
+											fjs.parentNode.insertBefore(js, fjs);
+										}
+									}(document, "script", "twitter-wjs");
+								</script>
+							</div>
+
+							<div class="pinterest">
+
+							</div>
+						</div>
 
 					</div>
 
-					<div class="product-information container">
-						<form id="productAction_FormId" name="standardProductPage" action="/product/productDetail.jsp?_DARGS=/product/include/skuTemplate.jsp" method="post">
-							<input name="_dyncharset" value="UTF-8" type="hidden">
-							</input>
-							<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
-							</input>
-							<div class="product-actions">
-							<div class="checkout-basket">
-								<div class="bi-exclusive" style="display:none;">
-									<span class="OneLinkNoTx">Beauty Insider</span> exclusive
-								</div>
-								<div class="not-avail-canada" style="display: none;">
-									not available in Canada
-								</div>
+				</div>
+			</div>
+		</div>
 
-								<div class="qualify" style="display: none;">
-									<p>
-										You must be a <span class="OneLinkNoTx">Beauty Insider</span> to qualify for this product.
-									</p>
-									<p>
-										<span><a href="#">sign in</a> or </span><a href="#">sign up</a>
-									</p>
-								</div>
-								<form id="addToBasketForm" name="addToBasketForm" action="/product/productDetail.jsp?_DARGS=/product/include/productActionButton.jsp.addToBasketForm" method="post">
-									<input name="_dyncharset" value="UTF-8" type="hidden">
-									</input>
-									<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
-									</input>
-									<input name="/atg/commerce/order/purchase/CartModifierFormHandler.useForwards" value="true" type="hidden">
-									<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.useForwards" value=" " type="hidden">
-									<input id="productP50714" name="/atg/commerce/order/purchase/CartModifierFormHandler.productId" value="P50714" type="hidden">
-									<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.productId" value=" " type="hidden">
-									<input id="addToBasketBtn" style="display: none;" name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrder" type="submit">
-									<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrder" value=" " type="hidden">
-									<input name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL" value=" " type="hidden">
-									<input name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL" value=" " type="hidden">
-									<% if @product.available == true %>
-									<div>
-										<button disabled="disabled" class="btn btn-large btn-primary btn-add-to-basket enable" name="add-to-basket" type="submit" >
-											add to basket <i class="arrow-mini arrow-right"></i>
-										</button>
-									</div>
-									<div style="display:none;">
-										<button  class="btn btn-large btn-primary btn-buy-the-collection" name="buy-the-collection" type="submit">
-											buy the collection
-										</button>
-									</div>
-									<input name="_DARGS" value="/product/include/productActionButton.jsp.addToBasketForm" type="hidden">
-									</input>
-								</form>
-								<form id="addAllToMyListForm" name="addAllToMyListForm" action="/product/productDetail.jsp?_DARGS=/product/include/actionArea.jsp.addAllToMyListForm" method="post">
-									<input name="_dyncharset" value="UTF-8" type="hidden">
-									</input>
-									<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
-									</input>
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value="true" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value=" " type="hidden">
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value=" " type="hidden">
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value=" " type="hidden">
-									<input id="moveToMyListBtn" style="display: none;" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyListForCollectionProduct" type="submit">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyListForCollectionProduct" value=" " type="hidden">
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.productId" value="P50714" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.productId" value=" " type="hidden">
-									<div style="display: none;">
-										<button class="btn btn-arrows btn-add-all-to-my-list" name="add-all-to-my-list" type="submit">
-											<span>&raquo;</span> add all to shopping list
-										</button>
-									</div>
-									<input name="_DARGS" value="/product/include/actionArea.jsp.addAllToMyListForm" type="hidden">
-									</input>
-								</form>
+		<div id="main" class="maincontent">
+			<div class="product-banner">
+				<a href="/stella-mccartney"> <img id="productBrandImg" src='/5689_logo_279.png' alt="stella-mccartney"/> </a>
 
-								<form id="addToMyListForm" name="addToMyListForm" action="/product/productDetail.jsp?_DARGS=/product/include/actionArea.jsp.addToMyListForm" method="post">
-									<input name="_dyncharset" value="UTF-8" type="hidden">
-									</input>
-									<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
-									</input>
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value="true" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value=" " type="hidden">
-									<input id="addToMyListSkuId" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.skuId" value="692806" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.skuId" value=" " type="hidden">
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value=" " type="hidden">
-									<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value=" " type="hidden">
-									<input id="moveToMyListBtn" style="display: none;" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyList" type="submit">
-									<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyList" value=" " type="hidden">
-									<div>
-										<button  class="btn btn-large btn-border btn-add-to-my-list btn-disabled" data-ajaxbutton="true" disabled="disabled" type="submit">
-											add to shopping list
-										</button>
-									</div>
-									<input name="_DARGS" value="/product/include/actionArea.jsp.addToMyListForm" type="hidden">
-									</input>
-								</form>
-								<% end %>
+			</div>
 
-								<div class="currently-on-your-list" style="display: none;">
-									<a href="/profile/MyAccount/MyList/myList.jsp"><span>on your shopping list</span></a>
+			<div class="product-information container">
+				<form id="productAction_FormId" name="standardProductPage" action="/product/productDetail.jsp?_DARGS=/product/include/skuTemplate.jsp" method="post">
+					<input name="_dyncharset" value="UTF-8" type="hidden">
+					</input>
+					<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
+					</input>
+					<div class="product-actions">
+						<div class="checkout-basket">
+							<div class="bi-exclusive" style="display:none;">
+								<span class="OneLinkNoTx">Beauty Insider</span> exclusive
+							</div>
+							<div class="not-avail-canada" style="display: none;">
+								not available in Canada
+							</div>
+
+							<div class="qualify" style="display: none;">
+								<p>
+									You must be a <span class="OneLinkNoTx">Beauty Insider</span> to qualify for this product.
+								</p>
+								<p>
+									<span><a href="#">sign in</a> or </span><a href="#">sign up</a>
+								</p>
+							</div>
+							<form id="addToBasketForm" name="addToBasketForm" action="/product/productDetail.jsp?_DARGS=/product/include/productActionButton.jsp.addToBasketForm" method="post">
+								<input name="_dyncharset" value="UTF-8" type="hidden">
+								</input>
+								<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
+								</input>
+								<input name="/atg/commerce/order/purchase/CartModifierFormHandler.useForwards" value="true" type="hidden">
+								<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.useForwards" value=" " type="hidden">
+								<input id="productP50714" name="/atg/commerce/order/purchase/CartModifierFormHandler.productId" value="P50714" type="hidden">
+								<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.productId" value=" " type="hidden">
+								<input id="addToBasketBtn" style="display: none;" name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrder" type="submit">
+								<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrder" value=" " type="hidden">
+								<input name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL" value=" " type="hidden">
+								<input name="/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL" value=" " type="hidden">
+								<% if @product.available == true %>
+								<div>
+									<button disabled="disabled" class="btn btn-large btn-primary btn-add-to-basket enable" name="add-to-basket" type="submit" >
+										add to basket <i class="arrow-mini arrow-right"></i>
+									</button>
 								</div>
-								<div class="find">
-									<form action="/">
-										<label for="find-store">Найти</label>
-										<input  type="text" class="find-store" name="zip" id="find-store">
-										<button class="btn-go icon"  rel="#find-in-store" name="go" type="submit"></button>
-									</form>
+								<div style="display:none;">
+									<button  class="btn btn-large btn-primary btn-buy-the-collection" name="buy-the-collection" type="submit">
+										buy the collection
+									</button>
 								</div>
+								<input name="_DARGS" value="/product/include/productActionButton.jsp.addToBasketForm" type="hidden">
+								</input>
+							</form>
+							<form id="addAllToMyListForm" name="addAllToMyListForm" action="/product/productDetail.jsp?_DARGS=/product/include/actionArea.jsp.addAllToMyListForm" method="post">
+								<input name="_dyncharset" value="UTF-8" type="hidden">
+								</input>
+								<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
+								</input>
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value="true" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value=" " type="hidden">
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value=" " type="hidden">
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value=" " type="hidden">
+								<input id="moveToMyListBtn" style="display: none;" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyListForCollectionProduct" type="submit">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyListForCollectionProduct" value=" " type="hidden">
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.productId" value="P50714" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.productId" value=" " type="hidden">
+								<div style="display: none;">
+									<button class="btn btn-arrows btn-add-all-to-my-list" name="add-all-to-my-list" type="submit">
+										<span>&raquo;</span> add all to shopping list
+									</button>
+								</div>
+								<input name="_DARGS" value="/product/include/actionArea.jsp.addAllToMyListForm" type="hidden">
+								</input>
+							</form>
+
+							<form id="addToMyListForm" name="addToMyListForm" action="/product/productDetail.jsp?_DARGS=/product/include/actionArea.jsp.addToMyListForm" method="post">
+								<input name="_dyncharset" value="UTF-8" type="hidden">
+								</input>
+								<input name="_dynSessConf" value="-7144425113793330697" type="hidden">
+								</input>
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value="true" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.useForwards" value=" " type="hidden">
+								<input id="addToMyListSkuId" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.skuId" value="692806" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.skuId" value=" " type="hidden">
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistSuccessURL" value=" " type="hidden">
+								<input name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value="/global/json/ajaxResponse.jsp" type="hidden">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addItemToGiftlistErrorURL" value=" " type="hidden">
+								<input id="moveToMyListBtn" style="display: none;" name="/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyList" type="submit">
+								<input name="_D:/sephora/commerce/profile/formhandler/SephoraMylistFormHandler.addToMyList" value=" " type="hidden">
+								<div>
+									<button  class="btn btn-large btn-border btn-add-to-my-list btn-disabled" data-ajaxbutton="true" disabled="disabled" type="submit">
+										add to shopping list
+									</button>
+								</div>
+								<input name="_DARGS" value="/product/include/actionArea.jsp.addToMyListForm" type="hidden">
+								</input>
+							</form>
+							<% end %>
+
+							<div class="currently-on-your-list" style="display: none;">
+								<a href="/profile/MyAccount/MyList/myList.jsp"><span>on your shopping list</span></a>
+							</div>
+							<div class="find">
+								<form action="/">
+									<label for="find-store">Найти</label>
+									<input  type="text" class="find-store" name="zip" id="find-store">
+									<button class="btn-go icon"  rel="#find-in-store" name="go" type="submit"></button>
+								</form>
 							</div>
 						</div>
-							<div class="product-detail container">
-								<div id="primarySkuInfoArea" class="container">
-									<div class="product-description container">
-										<div class="purchase-info" id="primarySkuInfo_price">
-											<% unless !@product.available == true %>
-											<div class="container">
-												<div class="product-quantity">
-													<label for="692806">QTY</label>
-													<select id="692806" class="OneLinkNoTx quantitySelector "  >
-														<option value="1" selected="selected" >1</option>
-														<option value="2" >2</option>
-														<option value="3" >3</option>
-														<option value="4" >4</option>
-														<option value="5" >5</option>
-														<option value="6" >6</option>
-														<option value="7" >7</option>
-														<option value="8" >8</option>
-														<option value="9" >9</option>
-														<option value="10" >10</option>
-													</select>
-													<input name="/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value="1" class="quantity" type="hidden">
-													<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value=" " type="hidden">
-												</div>
-												<span class="sku-price"> <span class="list-price"><span class="price"><%= @product.price %> </span><span class="currency">грн.</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
-											</div>
-
-											<div class="free-shipping">
-												бесплатная доставка
-											</div>
-											<% end %>
-											<% if @product.available == false  %>
-											<div class="out-of-stock" style="">
-												<b>нет в наличии</b><span></span><a href="#" class="underline btn-email-when-in-stock"></a>
-											</div>
-											<% end %>
-										</div>
-										<h1><span class="OneLinkNoTx"><%= @product.name %></span></h1>
-										<div class="info-row">
-											<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= @product.id %></span> </span>
-										</div>
-										<div class="info-row variation with-new">
-											<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx"><%= @product.size %> мл., <%= @product.product_type %></span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
-										</div>
-									</div>
-								</div>
-								<div class="sku-selector swatch-sq-lg border">
-									<div class="sku-selector-content clearfix">
-										<% unless @product.assets.nil? %>
-										<% i=0 %>
-										<% while i < @product.assets.size %>
-										<a href=<%= @product.assets[i].asset(:original)%> class="product-thumb fancybox" rel="modal" %> <%= image_tag @product.assets[i].asset(:small), :size => "62x62>" %> </a>
-										<% i+=1 %>
-										<% end %>
-										<% end %>
-									</div>
-								</div>
-							
-							<input name="_DARGS" value="/product/include/skuTemplate.jsp" type="hidden">
-							</input>
-						</form>
-
-					
-					<% unless @children.empty? %>	
-					<div class="ancillary-products container">
-						<h3 class="helvetica-light">похожие товары</h3>
-						<% for children in @children  %>
-						<div class="ancillary-row container">
+					</div>
+					<div class="product-detail container">
+						<div id="primarySkuInfoArea" class="container">
 							<div class="product-description container">
-								<div class="product-image">
-									<%= image_tag children.assets[0].asset(:small) %>
-								</div>
-								
-								<div class="purchase-info">
-									<% unless children.available == false%>
+								<div class="purchase-info" id="primarySkuInfo_price">
+									<% unless !@product.available == true %>
 									<div class="container">
-										<span class="sku-price"> <span class="list-price"> <span class="price"><%= children.price %></span> <span class="currency">грн.</span> </span> </span>
+										<div class="product-quantity">
+											<label for="692806">QTY</label>
+											<select id="692806" class="OneLinkNoTx quantitySelector "  >
+												<option value="1" selected="selected" >1</option>
+												<option value="2" >2</option>
+												<option value="3" >3</option>
+												<option value="4" >4</option>
+												<option value="5" >5</option>
+												<option value="6" >6</option>
+												<option value="7" >7</option>
+												<option value="8" >8</option>
+												<option value="9" >9</option>
+												<option value="10" >10</option>
+											</select>
+											<input name="/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value="1" class="quantity" type="hidden">
+											<input name="_D:/atg/commerce/order/purchase/CartModifierFormHandler.itemsMap.692806" value=" " type="hidden">
+										</div>
+										<span class="sku-price"> <span class="list-price"><span class="price"><%= @product.price %> </span><span class="currency">грн.</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
 									</div>
+
 									<div class="free-shipping">
 										бесплатная доставка
 									</div>
 									<% end %>
-									<% if children.available == false %>
-									<div class="out-of-stock">
-										<b>нет в наличии</b>
-										</div>
+									<% if @product.available == false  %>
+									<div class="out-of-stock" style="">
+										<b>нет в наличии</b><span></span><a href="#" class="underline btn-email-when-in-stock"></a>
+									</div>
 									<% end %>
 								</div>
-								<h2><%= children.name %></h2>
+								<h1><span class="OneLinkNoTx"><%= @product.name %></span></h1>
 								<div class="info-row">
-									<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= children.id %></span> </span>
+									<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= @product.id %></span> </span>
 								</div>
 								<div class="info-row variation with-new">
-									<span class=""> <span class="label" style="display:none"></span> <span class="value"> <span class="OneLinkNoTx"><%= children.size %> мл., <%= children.product_type %></span> </span> <span class="separator" style="display:none">|</span> <span class="new" style="display:none">New</span> </span>
+									<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx"><%= @product.size %> мл., <%= @product.product_type %></span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
 								</div>
 							</div>
 						</div>
-						<% end %>
+						<div class="sku-selector swatch-sq-lg border">
+							<div class="sku-selector-content clearfix">
+								<% unless @product.assets.nil? %>
+								<% i=0 %>
+								<% while i < @product.assets.size %>
+								<a href=<%= @product.assets[i].asset(:original)%> class="product-thumb fancybox" rel="modal" %> <%= image_tag @product.assets[i].asset(:small), :size => "62x62>" %> </a>
+								<% i+=1 %>
+								<% end %>
+								<% end %>
+							</div>
 						</div>
-						<% end %>
-						
-						</div>
-						
-					</div>
-					
-					<ul class="tabs container">
-						<li>
-							<a class = "current" href="#" ><span>Описание</span></a>
-						</li>
-					</ul>
 
-					<div class="panes">
-						<%= simple_format(@product.description) %>
-						<ul>
-							<li>
-								<strong>Дата выпуска:</strong> <%= @product.year %>
-							</li>
-							<li>
-								<strong>Страна-производитель:</strong> <%= @product.country %>
-							</li>
-							<li>
-								<strong>Пол:</strong> <%= @product.sex %>
-							</li>
-							<li>
-								<strong>Классификация аромата:</strong> <%= @product.family %>
-							</li>
-							<li>
-								<strong>Начальная нота:</strong> <%= @product.upnotes %>
-							</li>
-							<li>
-								<strong>Нота "сердца":</strong> <%= @product.heart %>
-							</li>
-							<li>
-								<strong>Конечная нота:</strong> <%= @product.base %>
-							</li>
-						</ul>
-						<div class="pane container" id="product-desc">
-							<div class="pane-left">
+						<input name="_DARGS" value="/product/include/skuTemplate.jsp" type="hidden">
+						</input>
+				</form>
 
-								<div class="short-description hidden">
+				<% unless @children.empty? %>
+				<div class="ancillary-products container">
+					<h3 class="helvetica-light">похожие товары</h3>
+					<% for children in @children  %>
+					<div class="ancillary-row container">
+						<div class="product-description container">
+							<div class="product-image">
+								<%= image_tag children.assets[0].asset(:small) %>
+							</div>
 
+							<div class="purchase-info">
+								<% unless children.available == false%>
+								<div class="container">
+									<span class="sku-price"> <span class="list-price"> <span class="price"><%= children.price %></span> <span class="currency">грн.</span> </span> </span>
 								</div>
-								<div class="long-description">
+								<div class="free-shipping">
+									бесплатная доставка
+								</div>
+								<% end %>
+								<% if children.available == false %>
+								<div class="out-of-stock">
+									<b>нет в наличии</b>
+								</div>
+								<% end %>
+							</div>
+							<h2><%= children.name %></h2>
+							<div class="info-row">
+								<span class="sku"> <span class="label">товар #</span> <span class="value OneLinkNoTx"><%= children.id %></span> </span>
+							</div>
+							<div class="info-row variation with-new">
+								<span class=""> <span class="label" style="display:none"></span> <span class="value"> <span class="OneLinkNoTx"><%= children.size %> мл., <%= children.product_type %></span> </span> <span class="separator" style="display:none">|</span> <span class="new" style="display:none">New</span> </span>
+							</div>
+						</div>
+					</div>
+					<% end %>
+				</div>
+				<% end %>
+
+			</div>
+
+		</div>
+
+		<ul class="tabs container">
+			<li>
+				<a class = "current" href="#" ><span>Описание</span></a>
+			</li>
+		</ul>
+
+		<div class="panes">
+			<%= simple_format(@product.description) %>
+			<ul>
+				<li>
+					<strong>Дата выпуска:</strong> <%= @product.year %>
+				</li>
+				<li>
+					<strong>Страна-производитель:</strong> <%= @product.country %>
+				</li>
+				<li>
+					<strong>Пол:</strong> <%= @product.sex %>
+				</li>
+				<li>
+					<strong>Классификация аромата:</strong> <%= @product.family %>
+				</li>
+				<li>
+					<strong>Начальная нота:</strong> <%= @product.upnotes %>
+				</li>
+				<li>
+					<strong>Нота "сердца":</strong> <%= @product.heart %>
+				</li>
+				<li>
+					<strong>Конечная нота:</strong> <%= @product.base %>
+				</li>
+			</ul>
+			<div class="pane container" id="product-desc">
+				<div class="pane-left">
+
+					<div class="short-description hidden">
+
+					</div>
+					<div class="long-description">
+						<p>
+							A fragrance based on the contrast between the freshness and softness of the rose, and the dark sensuality of amber, Stella is a sophisticated scent focused on an intense sense of femininity.
+							<br />
+							<br />
+							The concept of the Stella McCartney bath line is based on an ecological and organic cosmetology, selecting the best natural raw materials and capitalizing on vegetal extracts based on organic agriculture and on extraction methods that respect and protect the natural life force of the plants.
+							<br />
+							<br />
+							<strong>Notes:</strong>
+							<br />
+							Rose, Peony Flower, Mandarin, Rose Absolute, Amber.
+							<br />
+							<strong>Style:</strong>
+							<br />
+							Sensual. Intense. Feminine.
+						</p>
+					</div>
+				</div>
+
+				<div class="pane-right">
+					<p>
+						<span style="color: #b51f51; font-size: 10pt;">Limited-Time Beauty Bonus:</span style></strong> <span style="color: #b51f51">Buy Stella McCartney 3.3 oz Eau de Parfum Spray and receive a FREE Stella McCartney Tote (13” x 11.25” x 4”).
+								<br />
+								Enter promo code <strong>STELLATOTE </strong> at checkout. While supplies last; offer not valid on Canadian orders.</span>
+					</p>
+				</div>
+			</div>
+			<div class="pane container">
+				<div class="pane-left shipping-info">
+					<p id="shippingInfo_hazmat" style="display:none;">
+						Certain items considered Hazardous Materials (HAZMAT) including aerosols and alcohol-based products (e.g., pressurized spray cans, hairspray, nail polish remover, nail polish etc.) are required by the U.S. Department of Transportation to be shipped by Ground-only transport, due to air transport restrictions and regulations. For these shipments, you will need to choose UPS Ground, or USPS Ground in Checkout, for shipments in the continental United States. For P.O. Box addresses, USPS Ground is the only shipping method available. Regrettably, these items cannot be shipped to either Alaska or Hawaii.
+					</p>
+
+					<p id="shippingInfo_isGiftWrappable" style="display:none;">
+						This product cannot be gift wrapped.
+					</p>
+					<p class="sku-shippinginfo" style="display:none;"></p>
+					<p>
+						Get more information about our <a href="#" rel="#pop-shipping" class="pop-info underline">shipping rates, schedules, methods, and restrictions</a>.
+					</p>
+					<div id="pop-shipping" class="modal pop-shipping">
+						<div class="modal-body">
+							<h2>shipping information</h2>
+							<div class="modal-scroll custom-scroll">
+								<div class="html-component">
+									<table>
+										<tr>
+											<th width="90">Delivery Option</th>
+											<th>Delivery
+											<br>
+											Cost</th>
+											<th>Sephora
+											<br>
+											Processing
+											<br>
+											Time</th>
+											<th>Carrier Delivery Time</th>
+											<th>Total Delivery Time</th>
+										</tr>
+										<tr>
+											<td>Standard 3 Day
+											<br>
+											(Orders over $50)</td>
+											<td align="center">FREE</td>
+											<td align="center">1 day</td>
+											<td>Up to 3 business days.
+											<br>
+											Delivery Monday &ndash; Friday</td>
+											<td>4 business days</td>
+										</tr>
+										<tr>
+											<td>Standard 3 Day</td>
+											<td align="center">$5.95</td>
+											<td align="center">1 day</td>
+											<td>Up to 3 business days.
+											<br>
+											Delivery Monday &ndash; Friday</td>
+											<td>4 business days</td>
+										</tr>
+										<tr>
+											<td>UPS Ground</td>
+											<td align="center">$5.95</td>
+											<td align="center">1 day</td>
+											<td>East Coast:
+											<br>
+											2 &ndash; 5 business days.
+											<br>
+											West Coast:
+											<br>
+											5 &ndash; 7 business days.
+											<br>
+											Delivery Monday &ndash; Friday</td>
+											<td>3 &ndash; 8 business days</td>
+										</tr>
+										<tr>
+											<td>UPS 2nd Day Air</td>
+											<td align="center">$10.95</td>
+											<td align="center">1 day</td>
+											<td>2 &ndash; 3 business days.
+											<br>
+											Delivery Monday &ndash; Friday</td>
+											<td>3 &ndash; 4 business days</td>
+										</tr>
+										<tr>
+											<td>UPS Next Day
+											<br>
+											Air Saver</td>
+											<td align="center">$16.95</td>
+											<td align="center">1 day</td>
+											<td>1 &ndash; 2 business days.
+											<br>
+											Delivery Monday &ndash; Friday</td>
+											<td>2 &ndash; 3 business days</td>
+										</tr>
+										<tr>
+											<td>USPS Priority</td>
+											<td align="center">$6.95</td>
+											<td align="center">1 day</td>
+											<td>All states:
+											<br>
+											2 &ndash; 4 business days.
+											<br>
+											Delivery Monday &ndash; Saturday</td>
+											<td>3 &ndash; 5 business days</td>
+										</tr>
+									</table>
+
+									<h3>Shipping Costs &amp; Delivery Returns</h3>
 									<p>
-										A fragrance based on the contrast between the freshness and softness of the rose, and the dark sensuality of amber, Stella is a sophisticated scent focused on an intense sense of femininity.
-										<br />
-										<br />
-										The concept of the Stella McCartney bath line is based on an ecological and organic cosmetology, selecting the best natural raw materials and capitalizing on vegetal extracts based on organic agriculture and on extraction methods that respect and protect the natural life force of the plants.
-										<br />
-										<br />
-										<strong>Notes:</strong>
-										<br />
-										Rose, Peony Flower, Mandarin, Rose Absolute, Amber.
-										<br />
-										<strong>Style:</strong>
-										<br />
-										Sensual. Intense. Feminine.
+										Sephora.com offers FREE STANDARD 3 DAY SHIPPING on all U.S. merchandise orders $50 and over (excluding taxes). For shipments totaling less than $50, there is a delivery charge of $5.95 for Standard 3 Day shipping or $5.95 for UPS Ground. Our standard shipping option is Standard 3 Day shipping. Orders over $50 always ship for free&mdash;no promotion code needed.
+									</p>
+
+									<h3>Business Days</h3>
+									<p>
+										Monday &ndash; Sunday, excluding federal holidays within the United States. Standard 3 Day shipping UPS 2nd Day Air and UPS Next Day Air Saver: Orders must be placed by 12pm Eastern Standard Time (EST) to be processed on the same business day.
+									</p>
+
+									<h3>Processing Time</h3>
+									<p>
+										Orders will process in one day including Saturday and Sunday. All expedited priority orders must be placed by 12 noon Eastern Standard Time (EST) to be processed on the same business day. If placed after this, your order will be processed the following business day.
+									</p>
+
+									<h3>Hawaii &amp; Alaska</h3>
+									<p>
+										For shipments to Hawaii and Alaska, we offer USPS Priority and UPS 2nd Day Air and Next Day Air services.
+									</p>
+
+									<h3>Canada</h3>
+									<p>
+										For shipments to Canada, we offer UPS WorldShip for $9.95. We do not ship to Canadian P.O. Boxes.
+									</p>
+
+									<h3>APO/FPO/DPO Military Addresses</h3>
+									<p>
+										All shipments to APO, FPO, and DPO addresses are sent via USPS Priority.  Due to military handling time, delivery to some destinations may take up to 21 days.
+									</p>
+
+									<h3>P.O. Boxes</h3>
+									<p>
+										If you are shipping to a U.S. P.O. Box, we offer USPS Priority and USPS Ground (Parcel Post) Services. If your shipment contains hazardous materials, you must use USPS Ground (Parcel Post). We do not ship to Canadian P.O. Boxes.
+									</p>
+
+									<h3>Multiple Shipping Addresses</h3>
+									<p>
+										At this time, you can only ship to one address per order. To ship to multiple addresses, call Customer Service for assistance at 1-877-SEPHORA (1-877-737-4672).
+									</p>
+
+									<h3>Shipping Outside the United States</h3>
+									<p>
+										Sephora.com ships to all 50 U.S. states and Canada. Shipping to other international destinations and U.S. territories (such as Guam) is unavailable at this time.
+									</p>
+
+									<h3>Shipping &amp; Billing Addresses</h3>
+									<p>
+										For U.S. orders and shipping, you must have both a shipping address and credit card billing address within the United States or Puerto Rico, or an APO/FPO/DPO address. For Canadian orders and shipping, you must have both a shipping address and credit card billing address in Canada.
+									</p>
+
+									<h3>Tracking Orders</h3>
+									<p>
+										When your order is ready to be shipped, you will receive a shipment confirmation e-mail. The majority of our orders are shipped within 1-2 business days after the order has been placed. The e-mail will contain shipment details, your tracking number, and a link to the selected carrier site. You can click on the tracking number located near the bottom of the e-mail to track your order. To track an order on Sephora.com, visit the My Account area. You will need to sign in to access your account information. You may also call Sephora's Customer Service at
+										<dsp:valueof bean="StoreConfiguration.customerServicePhone"/>
+										to track your order.
+									</p>
+
+									<h3>Hazardous Materials</h3>
+									<p>
+										Items considered as Hazardous Materials (HAZMAT) include aerosols and alcohol-based products (e.g., pressurized spray cans, hairspray, nail polish remover, nail polish, etc.) and are required by the U.S. Department of Transportation to be shipped by Ground-only transport due to air transport restrictions and regulations. For these shipments, we offer UPS Ground at $5.95 and USPS Ground (Parcel Post) at $5.95. Our P.O. Box customers should select USPS Ground (Parcel Post) at $5.95. We are unable to ship HAZMAT items to Alaska, Hawaii, or Puerto Rico.
 									</p>
 								</div>
 							</div>
-
-							<div class="pane-right">
-								<p>
-									<span style="color: #b51f51; font-size: 10pt;">Limited-Time Beauty Bonus:</span style></strong> <span style="color: #b51f51">Buy Stella McCartney 3.3 oz Eau de Parfum Spray and receive a FREE Stella McCartney Tote (13” x 11.25” x 4”).
-											<br />
-											Enter promo code <strong>STELLATOTE </strong> at checkout. While supplies last; offer not valid on Canadian orders.</span>
-								</p>
-							</div>
 						</div>
-						<div class="pane container">
-							<div class="pane-left shipping-info">
-								<p id="shippingInfo_hazmat" style="display:none;">
-									Certain items considered Hazardous Materials (HAZMAT) including aerosols and alcohol-based products (e.g., pressurized spray cans, hairspray, nail polish remover, nail polish etc.) are required by the U.S. Department of Transportation to be shipped by Ground-only transport, due to air transport restrictions and regulations. For these shipments, you will need to choose UPS Ground, or USPS Ground in Checkout, for shipments in the continental United States. For P.O. Box addresses, USPS Ground is the only shipping method available. Regrettably, these items cannot be shipped to either Alaska or Hawaii.
-								</p>
+						<div class="icon close"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ymal">
+			<h3 class="helvetica-light">Вам может понравиться</h3>
+			<div class="carousel show-4 speed-350">
+				<ul class="carousel-inner" >
+					<% for prod in @same %>
+					<li>
+						<div class="product-item">
+							<a class="product-image"
+							<%= link_to image_tag(prod.assets[0].asset(:medium)), prod %>
+							</a>
+							<a href=<%= product_path(prod) %>>
+							<span class="product-info">
+							<span class="name OneLinkNoTx">
+							<span class="brand"> <%= prod.brands %></span>
+							<%= prod.name %>
+							</span>
+							<span class="sku-price">
+							<span class="list-price">
+							<span class="price"><%= prod.price %></span>
+							<span class="currency">грн.</span>
+							</span>
+							</span>
+							<span class="flags"> <%= prod.product_type %> </span> </span>
+							</a>
+							<div class="out-of-stock" style="display: none;">
+							<b>not in stock</b>
+							<span>:</span>
+							<a class="underline btn-email-when-in-stock" href="#"></a>
+							</div>
+							</div>
+							</li>
+							<% end %>
 
-								<p id="shippingInfo_isGiftWrappable" style="display:none;">
-									This product cannot be gift wrapped.
-								</p>
-								<p class="sku-shippinginfo" style="display:none;"></p>
-								<p>
-									Get more information about our <a href="#" rel="#pop-shipping" class="pop-info underline">shipping rates, schedules, methods, and restrictions</a>.
-								</p>
-								<div id="pop-shipping" class="modal pop-shipping">
-									<div class="modal-body">
-										<h2>shipping information</h2>
-										<div class="modal-scroll custom-scroll">
-											<div class="html-component">
-												<table>
-													<tr>
-														<th width="90">Delivery Option</th>
-														<th>Delivery
-														<br>
-														Cost</th>
-														<th>Sephora
-														<br>
-														Processing
-														<br>
-														Time</th>
-														<th>Carrier Delivery Time</th>
-														<th>Total Delivery Time</th>
-													</tr>
-													<tr>
-														<td>Standard 3 Day
-														<br>
-														(Orders over $50)</td>
-														<td align="center">FREE</td>
-														<td align="center">1 day</td>
-														<td>Up to 3 business days.
-														<br>
-														Delivery Monday &ndash; Friday</td>
-														<td>4 business days</td>
-													</tr>
-													<tr>
-														<td>Standard 3 Day</td>
-														<td align="center">$5.95</td>
-														<td align="center">1 day</td>
-														<td>Up to 3 business days.
-														<br>
-														Delivery Monday &ndash; Friday</td>
-														<td>4 business days</td>
-													</tr>
-													<tr>
-														<td>UPS Ground</td>
-														<td align="center">$5.95</td>
-														<td align="center">1 day</td>
-														<td>East Coast:
-														<br>
-														2 &ndash; 5 business days.
-														<br>
-														West Coast:
-														<br>
-														5 &ndash; 7 business days.
-														<br>
-														Delivery Monday &ndash; Friday</td>
-														<td>3 &ndash; 8 business days</td>
-													</tr>
-													<tr>
-														<td>UPS 2nd Day Air</td>
-														<td align="center">$10.95</td>
-														<td align="center">1 day</td>
-														<td>2 &ndash; 3 business days.
-														<br>
-														Delivery Monday &ndash; Friday</td>
-														<td>3 &ndash; 4 business days</td>
-													</tr>
-													<tr>
-														<td>UPS Next Day
-														<br>
-														Air Saver</td>
-														<td align="center">$16.95</td>
-														<td align="center">1 day</td>
-														<td>1 &ndash; 2 business days.
-														<br>
-														Delivery Monday &ndash; Friday</td>
-														<td>2 &ndash; 3 business days</td>
-													</tr>
-													<tr>
-														<td>USPS Priority</td>
-														<td align="center">$6.95</td>
-														<td align="center">1 day</td>
-														<td>All states:
-														<br>
-														2 &ndash; 4 business days.
-														<br>
-														Delivery Monday &ndash; Saturday</td>
-														<td>3 &ndash; 5 business days</td>
-													</tr>
-												</table>
+							</div>
+							</div>
+							<div class="recently-viewed">
+							<h3 class="helvetica-light">Просмотренные недавно</h3>
+							<div class="carousel show-7 speed-450">
+							<ul class="carousel-inner">
+							<% unless @recently.nil? %>
+							<% for recently in @recently %>
+							<li>
+							<% product = Product.find(recently) %>
+							<%= link_to (image_tag product.assets[0].asset(:small)), product %>
+							</li>
+							<% end %>
+							<% end %>
+							</ul>
+							</div>
+							</div>
+							<div id="ratings-reviews" class="ratings-reviews">
+							<div class="ratings-content">
 
-												<h3>Shipping Costs &amp; Delivery Returns</h3>
-												<p>
-													Sephora.com offers FREE STANDARD 3 DAY SHIPPING on all U.S. merchandise orders $50 and over (excluding taxes). For shipments totaling less than $50, there is a delivery charge of $5.95 for Standard 3 Day shipping or $5.95 for UPS Ground. Our standard shipping option is Standard 3 Day shipping. Orders over $50 always ship for free&mdash;no promotion code needed.
-												</p>
+							<h3 class="helvetica-light">ratings &amp; reviews</h3>
 
-												<h3>Business Days</h3>
-												<p>
-													Monday &ndash; Sunday, excluding federal holidays within the United States. Standard 3 Day shipping UPS 2nd Day Air and UPS Next Day Air Saver: Orders must be placed by 12pm Eastern Standard Time (EST) to be processed on the same business day.
-												</p>
+							<div class="actions container">
+							<ul>
+							<li>
+							<a href="#" class="btn btn-arrows"><span>&raquo;</span> Write a Review</a>
+							</li>
+							<li>
+							<a href="#" class="btn btn-arrows"><span>&raquo;</span> Ask a Question</a>
+							</li>
+							</ul>
+							</div>
+							<ul class="tabs container">
+							<li class="ratings">
+							<a href="#"><span>Ratings &amp; Reviews</span></a>
+							</li>
+							<li class="q-a">
+							<a href="#"><span>Product Q &amp; A</span></a>
+							</li>
+							</ul>
+							<div class="panes">
+							<div class="pane">
+							<div id="BVReviewsContainer"></div>
+							<noscript>
+							<iframe src="http://reviews.sephora.com/8723Illuminate/P50714/reviews.htm?format=noscript" width="100%"></iframe>
+							<br/>
+							</noscript>
+							</div>
+							<div class="pane">
+							<div id="BVQAContainer"></div>
+							</div>
+							</div>
+							</div>
+							<script>
+								var bvProdId = "P50714";
+							</script>
+							<div id="BVSubmissionParameters" style="display: none;"></div>
+							<div id="BVContainerPageURL" style="display: none;"></div>
+							<div id="BVQACustomerID" style="display: none;">
+							__USERID__
+							</div>
+							<div id="BVQASubmissionURL" style="display: none;"></div>
+							<iframe id="BVFrame" name="BVFrame" src="" style="visibility: hidden; width: 1px; height: 1px; position: absolute; left: -999px; top: -999px;"></iframe>
+							<iframe id="BVQAFrame" name="BVQAFrame" src="" style="visibility: hidden; width: 1px; height: 1px; position: absolute; left: -999px; top: -999px;"></iframe>
+							</div>
+							</div>
+							<div class="hidden">
+							<span class="bi-product-name"></span>
+							<span class="recommendation-copy">A fragrance based on the contrast between the freshness and softness of the rose, and the dark sensuality of amber, Stella is a sophisticated scent focused on an intense sense of femininity.
+							<br />
+							<br />
+							The concept of the Stella McCartney bath line is based on an ecological and organic cosmetology, selecting the best natural raw materials and capitalizing on vegetal extracts based on organic agriculture and on extraction methods that respect and protect the natural life force of the plants.
+							<br />
+							<br />
+							<strong>Notes:</strong>
+							<br />
+							Rose, Peony Flower, Mandarin, Rose Absolute, Amber.
+							<br />
+							<strong>Style:</strong>
+							<br />
+							Sensual. Intense. Feminine.</span>
+							</div>
+							</div>
 
-												<h3>Processing Time</h3>
-												<p>
-													Orders will process in one day including Saturday and Sunday. All expedited priority orders must be placed by 12 noon Eastern Standard Time (EST) to be processed on the same business day. If placed after this, your order will be processed the following business day.
-												</p>
+							<script id="defaultSku" type="text/json">
+							{"is_show_add_to_basket":true,"swatch_image":"/images/default-hero.jpg","is_sephora_exclusive":false,"is_online_only":false,"is_show_sign_in_and_sign_up":false,"is_show_sign_up":false,"variation_value":"1.6 oz Eau de Parfum Spray","is_show_add_all_to_list":false,"inline_image":"/productimages/sku/s692806-main-thumb.jpg","sku_size":"1.6 oz","large_images":"/productimages/sku/s692806-main-Lhero.jpg","ingredients":"","id":"692806","is_available_for_email":false,"is_new":false,"is_limited_edition":false,"list_price":72,"additional_sku_desc":"","is_beauty_insider":false,"hero_images":"/productimages/sku/s692806-main-hero.jpg","is_coming_soon":false,"is_refill_reminder":false,"is_gift_wrappable":true,"is_show_add_to_list":true,"primary_product":{"id":"P50714","display_name":"Stella","variation_type":"SCF","swatch_type":"Image","product_type":"standard","brand_name":"Stella McCartney"},"primary_product_id":"P50714","max_quantity":10,"sku_type":"Standard","thumb_images":"/productimages/sku/s692806-main-thumb.jpg","bi_type":"None","is_organic":false,"shipping_info":"","is_show_buy_collection":false,"is_natural":false,"is_in_stock":true,"is_show_find_in_store":true,"sku_number":"692806"}
+							</script>
 
-												<h3>Hawaii &amp; Alaska</h3>
-												<p>
-													For shipments to Hawaii and Alaska, we offer USPS Priority and UPS 2nd Day Air and Next Day Air services.
-												</p>
+							<span id="current-product" data-id="P50714" class="hidden"></span>
 
-												<h3>Canada</h3>
-												<p>
-													For shipments to Canada, we offer UPS WorldShip for $9.95. We do not ship to Canadian P.O. Boxes.
-												</p>
+							<div class="inline-basket">
+								<div class="inline-basket-content">
+									<h2 class="helvetica-light">just added to basket</h2>
+									<span id="currency" data-currency="$"></span>
+									<div class="basket-line-items"></div>
+									<div class="actions clearfix">
+										<a class="btn btn-continue-shopping" href="#"><i class="arrow-mini arrow-left"></i> Continue Shopping</a><a style="display: none" class="btn btn-primary btn-my-list" href="/profile/MyAccount/MyList/myList.jsp">Shopping List <i class="arrow-mini arrow-right"></i></a><a class="btn btn-primary btn-checkout" href="/basket/basket.jsp">basket <i class="arrow-mini arrow-right"></i></a>
+									</div>
+								</div>
+								<div class="inline-basket-msg hide">
+									<div class="msg-free-ship">
+										<h4>free shipping!</h4>
+										<p class="hide">
+											Add $<span class="amount-to-free-shipping"></span> to your order to qualify.
+										</p>
+										<p class="hide">
+											You now qualify for FREE STANDARD SHIPPING!
+										</p>
+									</div>
+									<div class="msg-vib-state">
+										<img src="/images/vib-stacked-sm.png" width="139" height="35" alt="VIB Beauty Insider">
+										<p></p>
+									</div>
+									<div class="errors hide"></div>
+								</div>
+								<div class="close icon"></div>
+							</div>
+							<div class="flame flame-bot"></div>
+							<a href="javascript:UserVoice.showPopupWidget();" class="btn btn-primary" id="btn-feedback">Give feedback now <i class="arrow-right"></i></a>
+							<script>
+								var uvOptions = {};
+								(function() {
+									var uv = document.createElement('script');
+									uv.type = 'text/javascript';
+									uv.async = true;
+									uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/rxRiakXW2Mu0gudNSnaQjA.js';
+									var s = document.getElementsByTagName('script')[0];
+									s.parentNode.insertBefore(uv, s);
+								})();
+							</script>
 
-												<h3>APO/FPO/DPO Military Addresses</h3>
-												<p>
-													All shipments to APO, FPO, and DPO addresses are sent via USPS Priority.  Due to military handling time, delivery to some destinations may take up to 21 days.
-												</p>
-
-												<h3>P.O. Boxes</h3>
-												<p>
-													If you are shipping to a U.S. P.O. Box, we offer USPS Priority and USPS Ground (Parcel Post) Services. If your shipment contains hazardous materials, you must use USPS Ground (Parcel Post). We do not ship to Canadian P.O. Boxes.
-												</p>
-
-												<h3>Multiple Shipping Addresses</h3>
-												<p>
-													At this time, you can only ship to one address per order. To ship to multiple addresses, call Customer Service for assistance at 1-877-SEPHORA (1-877-737-4672).
-												</p>
-
-												<h3>Shipping Outside the United States</h3>
-												<p>
-													Sephora.com ships to all 50 U.S. states and Canada. Shipping to other international destinations and U.S. territories (such as Guam) is unavailable at this time.
-												</p>
-
-												<h3>Shipping &amp; Billing Addresses</h3>
-												<p>
-													For U.S. orders and shipping, you must have both a shipping address and credit card billing address within the United States or Puerto Rico, or an APO/FPO/DPO address. For Canadian orders and shipping, you must have both a shipping address and credit card billing address in Canada.
-												</p>
-
-												<h3>Tracking Orders</h3>
-												<p>
-													When your order is ready to be shipped, you will receive a shipment confirmation e-mail. The majority of our orders are shipped within 1-2 business days after the order has been placed. The e-mail will contain shipment details, your tracking number, and a link to the selected carrier site. You can click on the tracking number located near the bottom of the e-mail to track your order. To track an order on Sephora.com, visit the My Account area. You will need to sign in to access your account information. You may also call Sephora's Customer Service at
-													<dsp:valueof bean="StoreConfiguration.customerServicePhone"/>
-													to track your order.
-												</p>
-
-												<h3>Hazardous Materials</h3>
-												<p>
-													Items considered as Hazardous Materials (HAZMAT) include aerosols and alcohol-based products (e.g., pressurized spray cans, hairspray, nail polish remover, nail polish, etc.) and are required by the U.S. Department of Transportation to be shipped by Ground-only transport due to air transport restrictions and regulations. For these shipments, we offer UPS Ground at $5.95 and USPS Ground (Parcel Post) at $5.95. Our P.O. Box customers should select USPS Ground (Parcel Post) at $5.95. We are unable to ship HAZMAT items to Alaska, Hawaii, or Puerto Rico.
-												</p>
+							<div id="email-stock" class="popup email-stock">
+								<div class="popup-content"></div>
+								<div class="icon close"></div>
+							</div>
+							<div id="find-in-store" class="popup find-in-store">
+								<div class="popup-content">
+									<h2>find in a sephora store</h2>
+									<div class="product-row container">
+										<div class="product-image">
+											<img src="/productimages/sku/s692806-main-Lthumb.jpg" width="42" height="42" alt="" />
+										</div>
+										<div class="product-description container">
+											<h3><span class="brand">Stella McCartney</span>&nbsp;<span>Stella</span></h3>
+											<div class="info-row">
+												<span class="sku"> <span class="label">Item #</span> <span class="value OneLinkNoTx">692806</span> </span>
+											</div>
+											<div class="info-row">
+												<span class="color"> <span class="label"></span> <span class="value OneLinkNoTx"></span> </span>
 											</div>
 										</div>
 									</div>
-									<div class="icon close"></div>
+									<div class="search-stores loading"></div>
 								</div>
+								<div class="icon close"></div>
 							</div>
-						</div>
-					</div>
-					<div class="ymal">
-						<h3 class="helvetica-light">Вам может понравиться</h3>
-						<div class="carousel show-4 speed-350">
-							<ul class="carousel-inner" >
-								<% for prod in @same %>
-								<li>
-									<div class="product-item">
-										<a class="product-image"
-										<%= link_to image_tag(prod.assets[0].asset(:medium)), prod %>
-										</a>
-										<a href=<%= product_path(prod) %>>
-										<span class="product-info">
-										<span class="name OneLinkNoTx">
-										<span class="brand"> <%= prod.brands %></span>
-										<%= prod.name %>
-										</span>
-										<span class="sku-price">
-										<span class="list-price">
-										<span class="price"><%= prod.price %></span>
-										<span class="currency">грн.</span>
-										</span>
-										</span>
-										<span class="flags"> <%= prod.product_type %> </span> </span>
-										</a>
-										<div class="out-of-stock" style="display: none;">
-										<b>not in stock</b>
-										<span>:</span>
-										<a class="underline btn-email-when-in-stock" href="#"></a>
-										</div>
-										</div>
-										</li>
-										<% end %>
 
-										</div>
-										</div>
-										<div class="recently-viewed">
-										<h3 class="helvetica-light">Просмотренные недавно</h3>
-										<div class="carousel show-7 speed-450">
-										<ul class="carousel-inner">
-										<% unless @recently.nil? %>
-										<% for recently in @recently %>
-										<li>
-										<% product = Product.find(recently) %>
-										<%= link_to (image_tag product.assets[0].asset(:small)), product %>
-										</li>
-										<% end %>
-										<% end %>
-										</ul>
-										</div>
-										</div>
-										<div id="ratings-reviews" class="ratings-reviews">
-										<div class="ratings-content">
+							<div id="find-in-store-map" class="popup">
+								<div class="popup-content">
+									<h2>map: Palmdale, Antelope Vly. Mall in JCPenney</h2>
+									<div id="map-canvas" class="map"></div>
+								</div>
+								<div class="icon close"></div>
+							</div>
+							<div id="mini-quick-look" class="popup quick-look mini">
+								<div class="container">
+									<div class="popup-content container"></div>
+								</div>
+								<div class="icon close"></div>
+							</div>
+							<div class="modal" id="modal-content-component">
+								<div class="modal-body"></div>
+								<div class="icon close"></div>
+							</div>
 
-										<h3 class="helvetica-light">ratings &amp; reviews</h3>
-
-										<div class="actions container">
-										<ul>
-										<li>
-										<a href="#" class="btn btn-arrows"><span>&raquo;</span> Write a Review</a>
-										</li>
-										<li>
-										<a href="#" class="btn btn-arrows"><span>&raquo;</span> Ask a Question</a>
-										</li>
-										</ul>
-										</div>
-										<ul class="tabs container">
-										<li class="ratings">
-										<a href="#"><span>Ratings &amp; Reviews</span></a>
-										</li>
-										<li class="q-a">
-										<a href="#"><span>Product Q &amp; A</span></a>
-										</li>
-										</ul>
-										<div class="panes">
-										<div class="pane">
-										<div id="BVReviewsContainer"></div>
-										<noscript>
-										<iframe src="http://reviews.sephora.com/8723Illuminate/P50714/reviews.htm?format=noscript" width="100%"></iframe>
-										<br/>
-										</noscript>
-										</div>
-										<div class="pane">
-										<div id="BVQAContainer"></div>
-										</div>
-										</div>
-										</div>
-										<script>
-											var bvProdId = "P50714";
-										</script>
-										<div id="BVSubmissionParameters" style="display: none;"></div>
-										<div id="BVContainerPageURL" style="display: none;"></div>
-										<div id="BVQACustomerID" style="display: none;">
-										__USERID__
-										</div>
-										<div id="BVQASubmissionURL" style="display: none;"></div>
-										<iframe id="BVFrame" name="BVFrame" src="" style="visibility: hidden; width: 1px; height: 1px; position: absolute; left: -999px; top: -999px;"></iframe>
-										<iframe id="BVQAFrame" name="BVQAFrame" src="" style="visibility: hidden; width: 1px; height: 1px; position: absolute; left: -999px; top: -999px;"></iframe>
-										</div>
-										</div>
-										<div class="hidden">
-										<span class="bi-product-name"></span>
-										<span class="recommendation-copy">A fragrance based on the contrast between the freshness and softness of the rose, and the dark sensuality of amber, Stella is a sophisticated scent focused on an intense sense of femininity.
-										<br />
-										<br />
-										The concept of the Stella McCartney bath line is based on an ecological and organic cosmetology, selecting the best natural raw materials and capitalizing on vegetal extracts based on organic agriculture and on extraction methods that respect and protect the natural life force of the plants.
-										<br />
-										<br />
-										<strong>Notes:</strong>
-										<br />
-										Rose, Peony Flower, Mandarin, Rose Absolute, Amber.
-										<br />
-										<strong>Style:</strong>
-										<br />
-										Sensual. Intense. Feminine.</span>
-										</div>
-										</div>
-
-										<script id="defaultSku" type="text/json">
-										{"is_show_add_to_basket":true,"swatch_image":"/images/default-hero.jpg","is_sephora_exclusive":false,"is_online_only":false,"is_show_sign_in_and_sign_up":false,"is_show_sign_up":false,"variation_value":"1.6 oz Eau de Parfum Spray","is_show_add_all_to_list":false,"inline_image":"/productimages/sku/s692806-main-thumb.jpg","sku_size":"1.6 oz","large_images":"/productimages/sku/s692806-main-Lhero.jpg","ingredients":"","id":"692806","is_available_for_email":false,"is_new":false,"is_limited_edition":false,"list_price":72,"additional_sku_desc":"","is_beauty_insider":false,"hero_images":"/productimages/sku/s692806-main-hero.jpg","is_coming_soon":false,"is_refill_reminder":false,"is_gift_wrappable":true,"is_show_add_to_list":true,"primary_product":{"id":"P50714","display_name":"Stella","variation_type":"SCF","swatch_type":"Image","product_type":"standard","brand_name":"Stella McCartney"},"primary_product_id":"P50714","max_quantity":10,"sku_type":"Standard","thumb_images":"/productimages/sku/s692806-main-thumb.jpg","bi_type":"None","is_organic":false,"shipping_info":"","is_show_buy_collection":false,"is_natural":false,"is_in_stock":true,"is_show_find_in_store":true,"sku_number":"692806"}
-										</script>
-
-										<span id="current-product" data-id="P50714" class="hidden"></span>
-
-
-										<div class="inline-basket">
-										<div class="inline-basket-content">
-										<h2 class="helvetica-light">just added to basket</h2>
-										<span id="currency" data-currency="$"></span>
-										<div class="basket-line-items"></div>
-										<div class="actions clearfix">
-										<a class="btn btn-continue-shopping" href="#"><i class="arrow-mini arrow-left"></i> Continue Shopping</a><a style="display: none" class="btn btn-primary btn-my-list" href="/profile/MyAccount/MyList/myList.jsp">Shopping List <i class="arrow-mini arrow-right"></i></a><a class="btn btn-primary btn-checkout" href="/basket/basket.jsp">basket <i class="arrow-mini arrow-right"></i></a>
-										</div>
-										</div>
-										<div class="inline-basket-msg hide">
-										<div class="msg-free-ship">
-										<h4>free shipping!</h4>
-										<p class="hide">
-										Add $<span class="amount-to-free-shipping"></span> to your order to qualify.
-										</p>
-										<p class="hide">
-										You now qualify for FREE STANDARD SHIPPING!
-										</p>
-										</div>
-										<div class="msg-vib-state">
-										<img src="/images/vib-stacked-sm.png" width="139" height="35" alt="VIB Beauty Insider">
-										<p></p>
-										</div>
-										<div class="errors hide"></div>
-										</div>
-										<div class="close icon"></div>
-										</div>
-										<div class="flame flame-bot"></div>
-										<a href="javascript:UserVoice.showPopupWidget();" class="btn btn-primary" id="btn-feedback">Give feedback now <i class="arrow-right"></i></a>
-										<script>
-											var uvOptions = {};
-											(function() {
-												var uv = document.createElement('script');
-												uv.type = 'text/javascript';
-												uv.async = true;
-												uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/rxRiakXW2Mu0gudNSnaQjA.js';
-												var s = document.getElementsByTagName('script')[0];
-												s.parentNode.insertBefore(uv, s);
-											})();
-										</script>
-										
-										<div id="email-stock" class="popup email-stock">
-										<div class="popup-content"></div>
-										<div class="icon close"></div>
-										</div>
-										<div id="find-in-store" class="popup find-in-store">
-										<div class="popup-content">
-										<h2>find in a sephora store</h2>
-										<div class="product-row container">
-										<div class="product-image">
-										<img src="/productimages/sku/s692806-main-Lthumb.jpg" width="42" height="42" alt="" />
-										</div>
-										<div class="product-description container">
-										<h3><span class="brand">Stella McCartney</span>&nbsp;<span>Stella</span></h3>
-										<div class="info-row">
-										<span class="sku"> <span class="label">Item #</span> <span class="value OneLinkNoTx">692806</span> </span>
-										</div>
-										<div class="info-row">
-										<span class="color"> <span class="label"></span> <span class="value OneLinkNoTx"></span> </span>
-										</div>
-										</div>
-										</div>
-										<div class="search-stores loading"></div>
-										</div>
-										<div class="icon close"></div>
-										</div>
-
-										<div id="find-in-store-map" class="popup">
-										<div class="popup-content">
-										<h2>map: Palmdale, Antelope Vly. Mall in JCPenney</h2>
-										<div id="map-canvas" class="map"></div>
-										</div>
-										<div class="icon close"></div>
-										</div>
-										<div id="mini-quick-look" class="popup quick-look mini">
-										<div class="container">
-										<div class="popup-content container"></div>
-										</div>
-										<div class="icon close"></div>
-										</div>
-										<div class="modal" id="modal-content-component">
-										<div class="modal-body"></div>
-										<div class="icon close"></div>
-										</div>
-
-										<div id="modal-view-larger" class="modal modal-large modal-view-larger">
-										<div class="modal-body clearfix">
-										<div class="product-image">
+							<div id="modal-view-larger" class="modal modal-large modal-view-larger">
+								<div class="modal-body clearfix">
+									<div class="product-image">
 										<img height="450" width="450" alt="" src="/productimages/sku/s692806-main-Lhero.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-450.png");'>
-										</div>
-										<div class="product-description container">
+									</div>
+									<div class="product-description container">
 
 										<div class="purchase-info">
-										<span class="sku-price"> <span class="list-price"><span class="currency">$</span><span class="price">72.00</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
-										<div class="out-of-stock" style="display: none;">
-										<b>not in stock</b><span>:</span><a href="#" class="underline btn-email-when-in-stock"></a>
-										</div>
+											<span class="sku-price"> <span class="list-price"><span class="currency">$</span><span class="price">72.00</span></span> <span class="sale-price" style="display: none;"><span class="currency">$</span><span class="price"></span></span> <span class="value-price" style="display: none"> (<span class="currency">$</span><span class="price"></span> value) </span> </span>
+											<div class="out-of-stock" style="display: none;">
+												<b>not in stock</b><span>:</span><a href="#" class="underline btn-email-when-in-stock"></a>
+											</div>
 										</div>
 										<h2>Stella</h2>
 										<div class="info-row">
-										<span class="sku"> <span class="label">Item #</span> <span class="value OneLinkNoTx">692806</span> </span>
+											<span class="sku"> <span class="label">Item #</span> <span class="value OneLinkNoTx">692806</span> </span>
 										</div>
 										<div class="info-row variation with-new">
-										<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx">1.6 oz Eau de Parfum Spray</span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
+											<span class=""> <span class="label" style="display:none"></span> <span class="value"><span class="OneLinkNoTx">1.6 oz Eau de Parfum Spray</span></span> <span class="separator"  style="display:none">|</span> <span class="new"  style="display:none">New</span> </span>
 										</div>
 
 										<div class="sku-selector swatch-sq-lg border">
 
-										<div class="sku-selector-content clearfix">
-										<a href="#" class="product-thumb " > <%= image_tag @product.assets[0].asset %>'> </a>
-										<a href="#" class="product-thumb " title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>1 oz Eau de Parfum Purse Spray</span></b></span>" id="sku-787143"> <img src="/productimages/sku/s787143+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
-										<a href="#" class="product-thumb current" title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>1.6 oz Eau de Parfum Spray</span></b></span>" id="sku-692806"> <img src="/productimages/sku/s692806+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
-										<a href="#" class="product-thumb " title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>3.3 oz Eau de Parfum Spray</span></b></span>" id="sku-692822"> <img src="/productimages/sku/s692822+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
+											<div class="sku-selector-content clearfix">
+												<a href="#" class="product-thumb " > <%= image_tag @product.assets[0].asset %>'> </a>
+												<a href="#" class="product-thumb " title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>1 oz Eau de Parfum Purse Spray</span></b></span>" id="sku-787143"> <img src="/productimages/sku/s787143+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
+												<a href="#" class="product-thumb current" title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>1.6 oz Eau de Parfum Spray</span></b></span>" id="sku-692806"> <img src="/productimages/sku/s692806+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
+												<a href="#" class="product-thumb " title="<span class='swatch-tip'><b><span class='OneLinkNoTx'>3.3 oz Eau de Parfum Spray</span></b></span>" id="sku-692822"> <img src="/productimages/sku/s692822+sw.jpg" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-62.png");'> </a>
+											</div>
+										</div>
 									</div>
-						</div>
-					</div>
 
-					<div class="view-bottom container">
-						<p class="flags"></p>
-						<div class="product-views container">
-							<h3>VIEWS</h3>
-							<div id="sku692806-thumbslarger" class="image-selector border"
+									<div class="view-bottom container">
+										<p class="flags"></p>
+										<div class="product-views container">
+											<h3>VIEWS</h3>
+											<div id="sku692806-thumbslarger" class="image-selector border"
 
-							style="display:none;">
-								<a id="sku-692806-0" href="#" class="product-thumb current"> <img src="/productimages/sku/s692806-main-thumb.jpg" alt="thumb-1" width="36" height="36" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-42.png");'> </a>
+											style="display:none;">
+												<a id="sku-692806-0" href="#" class="product-thumb current"> <img src="/productimages/sku/s692806-main-thumb.jpg" alt="thumb-1" width="36" height="36" onerror='Sephora.ui.error.productImage(this,"/images/image-not-available-42.png");'> </a>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="icon close"></div>
 							</div>
 
+
 						</div>
-					</div>
-				</div>
-				<div class="icon close"></div>
-			</div>
-</div>
+						
+						
+													<script type="text/javascript">
+								$(".product-thumb").hover(function() {
+
+									$("#hero").attr("src", this.href)
+								});
+							</script>

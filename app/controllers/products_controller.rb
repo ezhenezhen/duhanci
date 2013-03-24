@@ -22,8 +22,10 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @all_products = Product.find(:all, :conditions => {:parent_id => nil}, :include => :assets)
-    @brands = Product.uniq.pluck(:brands).sort
+    @all_products = Product
+    @all_products = @all_products.where(:parent_id => nil).includes(:assets)
+    @all_products = @all_products.where(:parent_id => nil, ).includes(:assets)
+    @all_brands = Product.uniq.pluck(:brands).sort
     @type = Product.uniq.pluck(:product_type).sort
     @products = @all_products.paginate(:page => params[:page], :per_page => 40)
     respond_to do |format|

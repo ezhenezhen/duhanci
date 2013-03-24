@@ -53,7 +53,7 @@
 				<div class="nav-bar clearfix">
 					<ul id="navigation" class="navigation clearfix">
 						<li class="nav1">
-							<a href="/skincare">Мужские товары</a>
+							<%= link_to "Мужские товары", products_path, params.merge({:product_type => "woman"}) %>
 						</li>
 						<li class="nav2">
 							<a href="/skincare">Унисекс товары</a>
