@@ -1,43 +1,55 @@
 $(function() {
-	var _visible = 5;
-	var $pagers = $('#pager a');
-	var _onBefore = function() {
-		$(this).find('img').stop().fadeTo(300, 1);
-		$pagers.removeClass('selected');
-	};
+	var $carousel = $('#carousel'), $pager = $('#pager');
 
-	$('#carousel').carouFredSel({
-		items : _visible,
-		width : '100%',
-		auto : false,
-		scroll : {
-			duration : 750
-		},
-		prev : {
-			button : '#prev',
-			items : 2,
-			onBefore : _onBefore
-		},
-		next : {
-			button : '#next',
-			items : 2,
-			onBefore : _onBefore
-		},
+	// gather the thumbnails
+	var $thumb = $('<div class="thumb" />');
+	$carousel.children().each(function() {
+		var src = $(this).attr('src');
+		$thumb.append('<img src="' + src.split('/large/').join('/small/') + '" />');
 	});
 
-	$pagers.click(function(e) {
-		e.preventDefault();
-		var group = $(this).attr('href').slice(1);
-		var slides = $('#carousel div.' + group);
-		var deviation = Math.floor((_visible - slides.length ) / 2);
-		if (deviation < 0) {
-			deviation = 0;
+	// duplicate the thumbnails
+	for (var a = 0; a < $carousel.children().length - 1; a++) {
+		$pager.append($thumb.clone());
+	}
+
+	// create large carousel
+	$carousel.carouFredSel({
+		items : {
+			visible : 1,
+			width : 550,
+			height : 310
+		},
+		scroll : {
+			fx : 'directscroll',
+			onBefore : function(data) {
+				var oldSrc = data.items.old.attr('src').split('/large/').join('/small/'), newSrc = data.items.visible.attr('src').split('/large/').join('/small/'), $t = $thumbs.find('img:first-child[src="' + newSrc + '"]').parent();
+
+				$t.trigger('slideTo', [$('img[src="' + oldSrc + '"]', $t), 'next']);
+			}
 		}
+	});
 
-		$('#carousel').trigger('slideTo', [$('#' + group), -deviation]);
-		$('#carousel div img').stop().fadeTo(300, 0.3);
-		slides.find('img').stop().fadeTo(300, 1);
+	// create thumb carousels
+	var $thumbs = $('.thumb');
+	$thumbs.each(function(i) {
+		$(this).carouFredSel({
+			auto : false,
+			scroll : {
+				fx : 'directscroll'
+			},
+			items : {
+				start : i + 1,
+				visible : 1,
+				width : 100,
+				height : 80
+			}
+		});
 
-		$(this).addClass('selected');
+		// click the carousel
+		$(this).click(function() {
+			var src = $(this).children().first().attr('src').split('/small/').join('/large/');
+			$carousel.trigger('slideTo', [$('img[src="' + src + '"]', $carousel), 'next']);
+		});
 	});
 }); 

@@ -5,16 +5,169 @@
 		<title> | Duhanci</title>
 		<% if params[:action] == "show" %>
 		<%= stylesheet_link_tag "jquery.fancybox", "main", "product-detail"  %>
-		<% else %>
-		<%= stylesheet_link_tag "main", "search" %>
-		<% end %>
 		<%= javascript_include_tag "jquery" %>
 		<%= javascript_include_tag "jquery.fancybox" %>
+		<% else %>
+		<%= stylesheet_link_tag "main", "search", "carousel" %>
+		<%= javascript_include_tag "jquery", "jquery.carouFredSel-6.2.0", "carousel" %>
+		<% end %>
+		
 		<%= csrf_meta_tags %>
 	</head>
-	<body>
+	<% if params[:action]=="index" %>
+	<body id="search">
+		<% else  %>
+	<body id="product">	
+		<%end %>
+		
+		<div id="uvTab" style="background: url(&quot;http://widget.uservoice.com/images/clients/widget2/tab-horizontal-dark-no-bullhorn.png&quot;) no-repeat scroll 0px 50% rgb(0, 0, 0); border-width: 1px 1px medium; border-style: solid solid none; border-color: rgb(255, 255, 255) rgb(255, 255, 255) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-radius: 4px 4px 0px 0px; box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 0, 0, 0.5); font: bold 14px/1em Arial,sans-serif; position: fixed; right: 10px; bottom: 0px; z-index: 9999; margin-bottom: 0px; display: block;">
+			<a id="uvTabLabel" style="background-color: transparent; display:block;padding:6px 10px 2px 10px;text-decoration:none;" href="javascript:return false;"><img src="http://widget.uservoice.com/dcache/widget/feedback-tab.png?t=give%20feedback%20now&amp;c=ffffff&amp;r=0" alt="give feedback now" style="border:0; background-color: transparent; padding:0; margin:0;"></a>
+		</div>
 
+		<div class="my-sephora">
+			
+				<ul>
+					<li class="my-basket right" id="sephoraBoxItemsArea">
+						<a href="/basket/basket.jsp"><span class="icon"></span> <span class="item-count">0</span> КОРЗИНА </a>
+					</li>
+				</ul>
+				<input name="_DARGS" value="/common/header/mySephora.jsp" type="hidden">
+			
+		</div>
+		<div class = "wrapper">
+			<div class="site-header">
+				<div class="flame flame-top"></div>
+				<div class="masthead container">
+					<form id="site-search-form" name="keywordSearch" action="/search/search.jsp?_DARGS=/common/header/search.jsp.siteFormId" method="post">
+						<div id="site-search" class="site-search container">
+							<input class="site-search-field ui-autocomplete-input" id="site-search-field" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" maxlength="70" placeholder="SEARCH" type="text">
+							<input class="icon" name="search" value="" type="submit">
+						</div>
+						
+					</form>
+					<div class="logo">
+						<a href="/"><img src="" alt="Duhanci"> </a>
+					</div>
+					<span id="free-shipping" data-free-shipping-amt="50.0" style="display:none;"></span>
+								</div>
+				<div class="nav-bar clearfix">
+					<ul id="navigation" class="navigation clearfix">
+						<li class="nav1">
+							<a href="/skincare">Мужские товары</a>
+						</li>
+						<li class="nav2">
+							<a href="/skincare">Унисекс товары</a>
+						</li>
+						<li class="nav3">
+							<a href="/fragrance">Женские товары</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<%= yield %>
 
+		<div class="wrapper">
+			<div class="footer">
+				<div class="footer-banner"></div>
+					<div class="footer-nav container">
+					<div class="footer-links clearfix">
+						<ul style="height: 102px;" class="height-reg">
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10000020">About Sephora</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10800116">Careers</a>
+							</li>
+							<li>
+								<a href="/sephora-gives-back">Sephora Gives Back</a>
+							</li>
+							<li>
+								<a href="/international/international.jsp">Sephora International</a>
+							</li>
+							<li>
+								<a href="/beautystudio">Store Beauty Services </a>
+							</li>
+							<li>
+								<a href="/store-locations-events?mediaId=16400021">Store Locations &amp; Events</a>
+							</li>
+						</ul>
+						<ul style="height: 102px;" class="height-reg">
+							<li class="OneLinkNoTx">
+								<a href="/profile/MyAccount/beautyInsider/beautyInsider.jsp">Beauty Insider</a>
+							</li>
+							<li>
+								<a href="/profile/MyAccount/myAccountLoading.jsp">My Account</a>
+							</li>
+							<li>
+								<a href="/profile/MyAccount/MyList/myList.jsp">Shopping List</a>
+							</li>
+							<li>
+								<a href="/customerService/customerServiceTemplate.jsp?mediaId=12300026#ShippingCosts">Shipping</a>
+							</li>
+							<li>
+								<a href="/customerService/customerServiceTemplate.jsp?mediaId=12300058">Order Status</a>
+							</li>
+							<li>
+								<a href="/sitemap/departments">Sitemap</a>
+							</li>
+						</ul>
+						<ul style="height: 102px;" class="height-reg">
+							<li>
+								<a href="/customerService/customerServiceTemplate.jsp?mediaId=9300044">Customer Service</a>
+							</li>
+							<li>
+								<a href="/customerService/contactUs.jsp?mediaId=10700018">Contact Us</a>
+							</li>
+							<li>
+								<a href="/giftcards">Gift Card</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=10800114">Affiliates</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplateNoNav.jsp?mediaId=12700031">Supply Chain Transparency</a>
+							</li>
+						</ul>
+						<ul style="height: 102px;" class="height-reg">
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=12800020">What's New</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=14300062">Bestsellers</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=14000018">Travel</a>
+							</li>
+							<li>
+								<a href="/contentStore/mediaContentTemplate.jsp?mediaId=11000020">Weekly Specials</a>
+							</li>
+							<li>
+								<a href="/search/saleResults.jsp?keyword=Sale">Sale</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="localization-social clearfix">
+					
+					<div class="social clearfix">
+						<a href="#" class="icon-facebook" target="_blank">Facebook</a>
+						<a href="#" class="icon-youtube" target="_blank">YouTube</a>
+						<a href="#" class="icon-gplus" target="_blank">Google+</a>
+						<a href="#" class="icon-tumblr" target="_blank">Tumblr</a>
+						<a href="#" class="icon-twitter" target="_blank">Twitter</a>
+						<a href="#" class="icon-pinterest" target="_blank">Pinterest</a>
+						<a href="#" class="icon-instagram" target="_blank">Instagram</a>
+					</div>
+				</div>
+				<div class="copyright">
+					<p>
+						Copyright &copy; 2013 All rights reserved. &nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="#">Privacy Policy</a>
+						<br>
+						<span class="OneLinkNoTx">TELEPHONE</span>
+					</p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
