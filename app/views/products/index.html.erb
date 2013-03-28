@@ -1,3 +1,19 @@
+<head>
+	<script>
+				$(function() {
+		$("#slider-range").slider({
+		range : true,
+		min : <%= @all_products.minimum(:price) %>,
+			max :  <%= @all_products.maximum(:price) %>,
+		values : [<%= @all_products.minimum(:price) %>,<%= @all_products.maximum(:price) %>
+			], slide : function(event, ui) {
+				$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+			}
+			});
+			$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+			});
+	</script>
+</head>
 <div class="wrapper">
 	<div class="breadcrumb container">
 		<ul>
@@ -7,7 +23,16 @@
 			</li>
 
 			<li>
-				Women
+				<% if params[:sex]=='женский' %>
+				<%= "Для женщин" %>
+				<% else if params[:sex]=='мужской' %>
+				<%= "Для мужчин" %>
+				<% else if params[:sex]=='унисекс'%>
+				<%= "Унисекс" %>
+				<% end %>
+				<% end %>
+				<% end %>
+				
 			</li>
 
 		</ul>
@@ -16,136 +41,147 @@
 
 		<div class="sidebar">
 			<div class="sidebar-content">
-		
+
 				<div style="display: block;" class="clear-all-filters top">
 					<h3 class="avalon-xl">Фильтр:</h3>
 				</div>
+				<div style="display: block;" class="clear-all-filters">
+					<%= button_to "Очистить фильтры", { :controller => "products", :action =>
+					"clear_filters" }, :class=>"btn"  %>
+				</div>
 				<div id="refinements" class="refinements-list">
 					<div class="refinements checkboxes brand-refinement">
-								
-						
-						<h4>Бренд:</h4>
+						<h4>Бренд(<%= @all_products.all.uniq {|s| s.brands}.size %>):</h4>
+						<%= form_tag products_filter_path, :method => :put do %>
 						<div class="checkbox-list custom-scroll">
-							<%i=1 %>
-						<% for brand in @all_brands %>
-						<label class="checkbox">
-								<input id="Brand<%= i %>" class="refinement" name="Formulation83" value="103000" analyticstype="Formulation" analyticsval="Hair Mist" type="checkbox">
-								<span><%= brand %></span> </label>
-								<% i+=1 %>
-						<% end %>
-						</div>
 
+							<% @all_products.all.uniq {|s| s.brands}.sort.each do |product| %>
+
+							<p>
+								<label><%= check_box_tag "brand_ids[]", product['brands']%><%= product.brands %></label>
+							</p>
+
+							<% end %>
+
+						</div>
+						<%= submit_tag 'Применить', :class => "btn" %>
+						<% end %>
 
 					</div>
-					
-					
-
 
 					<div class="refinements slider-bar">
-						<a href="#" class="clear-link hide">clear filter</a>
-						<h4>price range</h4>
 
-						<div class="slider-output">
-							<input class="slider-amount" readonly="readonly" type="text">
-						</div>
-						<div id="price range" class="slider-range refinement ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-							<div style="left: 0%; width: 100%;" class="ui-slider-range ui-widget-header"></div><a style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a><a style="left: 100%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+						<div id="price range"
+
+						<label for="amount"><h4>Диапазон цен</h4></label>
+						<p>
+
+						<input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold; width: 100px" />
+						</p>
+						<div id="slider-range"></div>
 						</div>
 						<div class="orig-range clearfix">
-							<div class="price-min">
-								<span>$5</span>
-							</div>
-							<div class="price-max">
-								<span>$255</span>
-							</div>
+						<div class="price-min">
+						<span>$<%= @all_products.minimum(:price) %></span>
 						</div>
-					</div>
-				</div>
-				<div style="display: block;" class="clear-all-filters">
-					<input value="clear all filters" class="btn" type="submit">
-				</div>
-				<div class="social-links">
-					<div class="like-button">
+						<div class="price-max">
+						<span>$<%= @all_products.maximum(:price) %></span>
+						</div>
+						</div>
+						</div>
+						</div>
+
+						<div class="social-links">
+						<div class="like-button">
 						<fb:like layout="button_count" show_faces="false" font="arial"></fb:like>
-					</div>
-					<div id="fb-root"></div>
-					<div id="pinterest-root" class="pinterest hidden">
+						</div>
+						<div id="fb-root"></div>
+						<div id="pinterest-root" class="pinterest hidden">
 						<a data-pin-config="beside" href="#" data-pin-do="buttonPin"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
-					</div>
-				</div>
-			</div>
-		</div>
+						</div>
+						</div>
+						</div>
+						</div>
 
-		<div id="main" class="maincontent">
-			<div id="banner">
-				<div id="pager"></div>
-				<div class="inner">
-					<div id="carousel">
+						<div id="main" class="maincontent">
+						<div id="banner">
+						<div id="pager"></div>
+						<div class="inner">
+						<div id="carousel">
 						<%= image_tag "/rat.jpg", :size => "550x310"%>
-						<%= image_tag "/walle.jpg", :size => "550x310"%>
-						<%= image_tag "/up.jpg", :size => "550x310" %>
-						<%= image_tag "/toystory.jpg", :size => "550x310" %>
-						<%= image_tag "/bugs.jpg", :size => "550x310" %>
+							<%= image_tag "/walle.jpg", :size => "550x310"%>
+							<%= image_tag "/up.jpg", :size => "550x310" %>
+							<%= image_tag "/toystory.jpg", :size => "550x310" %>
+							<%= image_tag "/bugs.jpg", :size => "550x310" %>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div style="display: none;" class="search-banner container">
-				<div class="search-header">
-					<h1></h1>
-				</div>
-			</div>
-			<div style="display: none;" class="brand-box flush no-links container"></div><div class="authored-content"></div>
-
-			<div class="search-results">
-
-				<div class="your-choices">
-					<div class="your-choices-content container" style="">
-						<h3 class="hidden">your filters:</h3>
-						<ul class="container hidden"></ul>
-						<p class="clear-link hidden">
-							<a href="#">clear filter</a>
-						</p>
+				<div style="display: none;" class="search-banner container">
+					<div class="search-header">
+						<h1></h1>
 					</div>
 				</div>
+				<div style="display: none;" class="brand-box flush no-links container"></div><div class="authored-content"></div>
 
-				
+				<div class="search-results">
 
-				<div class="total-items">
-					<br>
-				</div>
-				
-				<div class="apple_pagination">
-					<%= will_paginate @products %>
-					<span>Найдено <%= @all_products.size %> товаров</span>
-				</div>
-
-				<div class="product-grid container" style="display: block;">
-					<% @products.each do |product| %>
-					<%= link_to(product) do%>
-
-					<div class="product-item">
-						<%= link_to (image_tag product.assets[0].asset(:thumb), :height => "135"), product, :class => "product-image" %>
-						<span class="product-info"> <span class="name OneLinkNoTx"> <span class="brand OneLinkNoTx"><%= product.brands %></span> <span><%= product.name %></span> </span> <span class="product-price "> <span class="list-price"><%= product.price %> грн.</span> </span> <span class="flags"><%= product.product_type %> </span></span>
-					</div>
-					<% end %>
-					<% end %>
-
-					<div class="pagination bottom container">
-
-						<div class="apple_pagination">
-							<%= will_paginate @products %>
+					<div class="your-choices">
+						<div class="your-choices-content container" style="">
+							<h3 class="hidden">your filters:</h3>
+							<ul class="container hidden"></ul>
+							<p class="clear-link hidden">
+								<a href="#">clear filter</a>
+							</p>
 						</div>
 					</div>
 
+					<div class="total-items">
+						<br>
+					</div>
+
+					<div class="apple_pagination">
+						<%= will_paginate @products %>
+						<span>Найдено <%= @all_products.size %> товаров</span>
+					</div>
+
+					<div class="product-grid container" style="display: block;">
+						<% @products.each do |product| %>
+						<% if (params[:price_from]==nil&&params[:price_to]==nil) %>
+						<% max_price = product.price %>
+						<% min_price = product.price %>
+						<% children = Product.where("parent_id = ?", product) %>
+						<% for child in children %>
+						<% max_price = child.price if child.price > max_price %>
+						<% min_price = child.price if child.price < min_price  %>
+						<% end %>
+						<% end %>
+
+						<%= link_to(product) do%>
+
+						<div class="product-item">
+							<%= link_to (image_tag product.assets[0].asset(:thumb), :height => "135"), product, :class => "product-image" %>
+							<span class="product-info"> <span class="name OneLinkNoTx"> <span class="brand OneLinkNoTx"><%= product.brands %></span> <span><%= product.name %></span> </span> <span class="product-price "> <span class="list-price"> <% if min_price != max_price %>
+										<%= min_price %>-<%= max_price %>
+										<% else %>
+										<%= product.price %>
+										<% end %>
+										грн.</span> </span> <span class="flags"><%= product.product_type %> </span></span>
+						</div>
+						<% end %>
+						<% end %>
+
+						<div class="pagination bottom container">
+
+							<div class="apple_pagination">
+								<%= will_paginate @products %>
+							</div>
+						</div>
+
+					</div>
+
 				</div>
-				
-				
 
 			</div>
-
 		</div>
+
 	</div>
-
-	<img id="loader-precached" src="/images/loader_black_155_V2.gif" alt="" class="hidden" height="155" width="155">
-
-</div>

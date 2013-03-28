@@ -10,7 +10,15 @@
 				<%= link_to Duhanci, root_path %>
 			</li>
 			<li class="current">
-				<a href="/women-fragrance">Women</a>
+				<% if @product.sex=='женский' %>
+				<%=link_to "Для женщин", '/products/?sex=женский'%>
+				<% else if @product.sex=='мужской' %>
+				<%=link_to "Для мужчин", '/products/?sex=мужской'%>
+				<% else if @product.sex=='унисекс'%>
+				<%=link_to "Унисекс", '/products/?sex=унисекс' %>
+				<% end %>
+				<% end %>
+				<% end %>
 			</li>
 			<li class="view-all">
 				<a href="/stella-mccartney">view all <span class="underline"><span class="OneLinkNoTx">Stella McCartney</span> products</span></a>

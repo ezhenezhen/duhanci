@@ -10,6 +10,7 @@
 		<% else %>
 		<%= stylesheet_link_tag "main", "search", "carousel" %>
 		<%= javascript_include_tag "jquery", "jquery.carouFredSel-6.2.0", "carousel" %>
+		<%= javascript_include_tag "http://code.jquery.com/ui/1.10.2/jquery-ui.js" %>
 		<% end %>
 		
 		<%= csrf_meta_tags %>
@@ -53,13 +54,13 @@
 				<div class="nav-bar clearfix">
 					<ul id="navigation" class="navigation clearfix">
 						<li class="nav1">
-							<%= link_to "Мужские товары", products_path, params.merge({:product_type => "woman"}) %>
+							<%= link_to "Мужские товары", '/products/?sex=мужской' %>
 						</li>
 						<li class="nav2">
-							<a href="/skincare">Унисекс товары</a>
+							<%= link_to "Унисекс товары", '/products/?sex=унисекс' %>
 						</li>
 						<li class="nav3">
-							<a href="/fragrance">Женские товары</a>
+							<%= link_to "Женские товары", '/products/?sex=женский' %>
 						</li>
 					</ul>
 				</div>

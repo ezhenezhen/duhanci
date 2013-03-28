@@ -24,7 +24,11 @@ class ProductsController < ApplicationController
   def index
     @all_products = Product
     @all_products = @all_products.where(:parent_id => nil).includes(:assets)
-    @all_products = @all_products.where(:parent_id => nil, ).includes(:assets)
+    @all_products = @all_products.where("price BETWEEN ? AND ?", params[:price_from], params[:price_to]) if params[:price_from]&&params[:price_to]
+    @all_products = @all_products.where("price >= ?", params[:price_from]) if params[:price_from]
+    @all_products = @all_products.where("price <= ?", params[:price_to]) if params[:price_to]
+    @all_products = @all_products.where("brands = ?", params[:brands]) if params[:brands]
+    @all_products = @all_products.where("sex = ?", params[:sex]) if params[:sex]
     @all_brands = Product.uniq.pluck(:brands).sort
     @type = Product.uniq.pluck(:product_type).sort
     @products = @all_products.paginate(:page => params[:page], :per_page => 40)
@@ -114,6 +118,16 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def filter
+    @all_products = Product.where(:brands => params[:brand_ids])
+    if @all_products.size == 0
+      redirect_to products_path
+    else
+    @products = @all_products.paginate(:page => params[:page], :per_page => 40)
+    render :action => :index   
     end
   end
 
@@ -578,6 +592,11 @@ class ProductsController < ApplicationController
       i+=1
     end
 
+  end
+  
+  
+  def clear_filters
+    redirect_to products_path
   end
 end
 
