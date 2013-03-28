@@ -2,7 +2,7 @@
 Duhanci::Application.routes.draw do
   match 'products/brands' => 'products#parse_all_brands'
   match 'products/items' => 'products#parse_products_information'
-  match 'products/filter' => 'products#filter', :as => :products
+  match 'products/filter' => 'products#filter'
   resources :products
   resources :files
   match 'products/clear_filters'=> 'products#clear_filters'
